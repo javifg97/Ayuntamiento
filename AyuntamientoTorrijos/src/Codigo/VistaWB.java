@@ -139,8 +139,6 @@ public class VistaWB extends JFrame implements Vista {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-
-		JButton btnInscribirActividad = new JButton("Solicitud actividad");
 		JButton btnVisualizarLicencias = new JButton("Visualizar Licencias");
 
 		JPanel panel_2 = new JPanel();
@@ -237,8 +235,6 @@ public class VistaWB extends JFrame implements Vista {
 
 		FechaInicialActBusqueda = new JDateChooser();
 
-		FechaFinalActBusqueda = new JDateChooser();
-
 		JLabel lblDesdeActBusqueda = new JLabel("Fecha Solicitud:");
 
 		JLabel lblHastaActBusqueda = new JLabel("Fecha Inicio:");
@@ -252,13 +248,15 @@ public class VistaWB extends JFrame implements Vista {
 				controlador.refrescar();
 			}
 		});
+		
+		FechaFinalActBusqueda = new JDateChooser();
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
 			gl_panel_1.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panel_1.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_panel_1.createParallelGroup(Alignment.TRAILING)
-						.addGroup(Alignment.LEADING, gl_panel_1.createSequentialGroup()
+						.addGroup(gl_panel_1.createSequentialGroup()
 							.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
 								.addComponent(lblTipo, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
 								.addComponent(txtfActBusqueda, GroupLayout.PREFERRED_SIZE, 216, GroupLayout.PREFERRED_SIZE)
@@ -267,14 +265,14 @@ public class VistaWB extends JFrame implements Vista {
 									.addGap(10)
 									.addComponent(lblHastaActBusqueda)))
 							.addGap(10))
-						.addGroup(Alignment.LEADING, gl_panel_1.createSequentialGroup()
+						.addGroup(gl_panel_1.createSequentialGroup()
 							.addComponent(FechaFinalActBusqueda, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
 							.addComponent(FechaInicialActBusqueda, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
 							.addContainerGap())
 						.addGroup(gl_panel_1.createSequentialGroup()
 							.addComponent(btnRefreshActv)
-							.addPreferredGap(ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
 							.addComponent(btnBuscarLicencia)
 							.addContainerGap())))
 		);
@@ -320,7 +318,6 @@ public class VistaWB extends JFrame implements Vista {
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnInscribirActividad, GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
 						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
 							.addGroup(gl_contentPane.createSequentialGroup()
 								.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 241, GroupLayout.PREFERRED_SIZE)
@@ -328,13 +325,13 @@ public class VistaWB extends JFrame implements Vista {
 								.addComponent(panel_4, 0, 0, Short.MAX_VALUE))
 							.addComponent(btnVisualizarLicencias, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE))
 						.addComponent(btnConfiguracion))
-					.addGap(18)
-					.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 667, GroupLayout.PREFERRED_SIZE)
-					.addGap(2))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 665, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 						.addGroup(gl_contentPane.createSequentialGroup()
@@ -348,9 +345,7 @@ public class VistaWB extends JFrame implements Vista {
 									.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 261, GroupLayout.PREFERRED_SIZE)))
 							.addPreferredGap(ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
 							.addComponent(btnVisualizarLicencias, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnInscribirActividad, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
-							.addGap(221)
+							.addGap(271)
 							.addComponent(btnConfiguracion)))
 					.addContainerGap())
 		);
@@ -381,19 +376,25 @@ public class VistaWB extends JFrame implements Vista {
 
 		JLabel lblRutaDeAcceso = new JLabel("");
 		lblRutaDeAcceso.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRutaDeAcceso.setText("Inscribir Licencia de Actividad");
+		lblRutaDeAcceso.setText("Visualizar licencias");
 
 		JPanel Contenedor = new JPanel();
 
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
-		gl_panel_2.setHorizontalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+		gl_panel_2.setHorizontalGroup(
+			gl_panel_2.createParallelGroup(Alignment.LEADING)
 				.addComponent(lblRutaDeAcceso, GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
-				.addComponent(Contenedor, GroupLayout.PREFERRED_SIZE, 665, Short.MAX_VALUE));
-		gl_panel_2.setVerticalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_2.createSequentialGroup()
-						.addComponent(lblRutaDeAcceso, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(Contenedor, GroupLayout.PREFERRED_SIZE, 550, Short.MAX_VALUE)));
+					.addComponent(Contenedor, GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		gl_panel_2.setVerticalGroup(
+			gl_panel_2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_2.createSequentialGroup()
+					.addComponent(lblRutaDeAcceso, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(Contenedor, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
 		Contenedor.setLayout(new CardLayout(0, 0));
 
 		JPanel inscActvPers = new JPanel();
@@ -401,22 +402,14 @@ public class VistaWB extends JFrame implements Vista {
 		Contenedor.add(inscActvPers, "name_25046820143722");
 		inscActvPers.setVisible(false);
 		ArrVistas[1] = inscActvPers;
-		inscActvPers.setLayout(null);
 
 		JButton btnAceptarInsPers = new JButton("Aceptar");
 
-		btnAceptarInsPers.setBounds(374, 561, 89, 23);
-		inscActvPers.add(btnAceptarInsPers);
-
 		JButton btnCancelarInsPers = new JButton("Cancelar");
 
-		btnCancelarInsPers.setBounds(473, 561, 89, 23);
-		inscActvPers.add(btnCancelarInsPers);
 
 		
 		JPanel Interesado = new JPanel();
-		Interesado.setBounds(0, 0, 311, 584);
-		inscActvPers.add(Interesado);
 		
 				JLabel lblInteresado = new JLabel("Interesado");
 				lblInteresado.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -597,127 +590,149 @@ public class VistaWB extends JFrame implements Vista {
 
 		}
 		JPanel Representante = new JPanel();
-		Representante.setBounds(310, 0, 345, 554);
-		inscActvPers.add(Representante);
 
 		
 		
 				JLabel lblRepresentante = new JLabel("Representante");
+				lblRepresentante.setEnabled(false);
 				lblRepresentante.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 				JLabel label_10 = new JLabel("Nombre");
+				label_10.setEnabled(false);
 		
 				textField_17 = new JTextField();
+				textField_17.setEnabled(false);
 				textField_17.setColumns(10);
 		
 				JLabel label_9 = new JLabel("Apellidos");
+				label_9.setEnabled(false);
 		
 				textField_16 = new JTextField();
+				textField_16.setEnabled(false);
 				textField_16.setColumns(10);
 		
 				JLabel lblDocumentoDeIdentidad = new JLabel("Documento de identidad");
+				lblDocumentoDeIdentidad.setEnabled(false);
 		
 				textField_14 = new JTextField();
+				textField_14.setEnabled(false);
 				textField_14.setColumns(10);
 		
 				JLabel label_5 = new JLabel("Direccion");
+				label_5.setEnabled(false);
 		
 				textField_13 = new JTextField();
+				textField_13.setEnabled(false);
 				textField_13.setColumns(10);
 		
 				JLabel lblMunicipio = new JLabel("Municipio");
+				lblMunicipio.setEnabled(false);
 		
 				textField_8 = new JTextField();
+				textField_8.setEnabled(false);
 				textField_8.setColumns(10);
 		
 				JLabel label_4 = new JLabel("Codigo postal");
+				label_4.setEnabled(false);
 		
 				textField_12 = new JTextField();
+				textField_12.setEnabled(false);
 				textField_12.setColumns(10);
 		
 				JLabel lblEmailRepresentante = new JLabel("Email representante");
+				lblEmailRepresentante.setEnabled(false);
 		
 				textField_15 = new JTextField();
+				textField_15.setEnabled(false);
 				textField_15.setColumns(10);
 		
 				JLabel lblFaxRepresentante = new JLabel("Fax representante");
+				lblFaxRepresentante.setEnabled(false);
 		
 				textField_19 = new JTextField();
+				textField_19.setEnabled(false);
 				textField_19.setColumns(10);
 		
 				JLabel lblTelefonoMovil = new JLabel("Telefono movil");
+				lblTelefonoMovil.setEnabled(false);
 		
 				textField_6 = new JTextField();
+				textField_6.setEnabled(false);
 				textField_6.setColumns(10);
 		
 				textField_7 = new JTextField();
+				textField_7.setEnabled(false);
 				textField_7.setColumns(10);
 		
 				JLabel label_3 = new JLabel("Telefono fijo");
+				label_3.setEnabled(false);
 		GroupLayout gl_Representante = new GroupLayout(Representante);
 		gl_Representante.setHorizontalGroup(
 			gl_Representante.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_Representante.createSequentialGroup()
-					.addGap(147)
-					.addComponent(lblRepresentante))
-				.addGroup(gl_Representante.createSequentialGroup()
-					.addGap(106)
-					.addComponent(label_10, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Representante.createSequentialGroup()
-					.addGap(106)
-					.addComponent(textField_17, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Representante.createSequentialGroup()
-					.addGap(106)
-					.addComponent(label_9, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Representante.createSequentialGroup()
-					.addGap(106)
-					.addComponent(textField_16, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Representante.createSequentialGroup()
-					.addGap(106)
-					.addComponent(lblDocumentoDeIdentidad, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Representante.createSequentialGroup()
-					.addGap(106)
-					.addComponent(textField_14, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Representante.createSequentialGroup()
-					.addGap(106)
-					.addComponent(label_5, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Representante.createSequentialGroup()
-					.addGap(106)
-					.addComponent(textField_13, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Representante.createSequentialGroup()
-					.addGap(106)
-					.addComponent(lblMunicipio, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Representante.createSequentialGroup()
-					.addGap(106)
-					.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Representante.createSequentialGroup()
-					.addGap(106)
-					.addComponent(label_4, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Representante.createSequentialGroup()
-					.addGap(106)
-					.addComponent(textField_12, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Representante.createSequentialGroup()
-					.addGap(106)
-					.addComponent(lblEmailRepresentante, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Representante.createSequentialGroup()
-					.addGap(106)
-					.addComponent(textField_15, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Representante.createSequentialGroup()
-					.addGap(106)
-					.addComponent(lblFaxRepresentante, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Representante.createSequentialGroup()
-					.addGap(106)
-					.addComponent(textField_19, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Representante.createSequentialGroup()
-					.addGap(106)
-					.addComponent(lblTelefonoMovil, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
-					.addGap(10)
-					.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_Representante.createSequentialGroup()
-					.addGap(106)
-					.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(8)
-					.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGroup(gl_Representante.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Representante.createSequentialGroup()
+							.addGap(147)
+							.addComponent(lblRepresentante))
+						.addGroup(gl_Representante.createSequentialGroup()
+							.addGap(106)
+							.addComponent(label_10, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Representante.createSequentialGroup()
+							.addGap(106)
+							.addComponent(textField_17, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Representante.createSequentialGroup()
+							.addGap(106)
+							.addComponent(label_9, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Representante.createSequentialGroup()
+							.addGap(106)
+							.addComponent(textField_16, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Representante.createSequentialGroup()
+							.addGap(106)
+							.addComponent(lblDocumentoDeIdentidad, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Representante.createSequentialGroup()
+							.addGap(106)
+							.addComponent(textField_14, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Representante.createSequentialGroup()
+							.addGap(106)
+							.addComponent(label_5, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Representante.createSequentialGroup()
+							.addGap(106)
+							.addComponent(textField_13, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Representante.createSequentialGroup()
+							.addGap(106)
+							.addComponent(lblMunicipio, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Representante.createSequentialGroup()
+							.addGap(106)
+							.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Representante.createSequentialGroup()
+							.addGap(106)
+							.addComponent(label_4, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Representante.createSequentialGroup()
+							.addGap(106)
+							.addComponent(textField_12, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Representante.createSequentialGroup()
+							.addGap(106)
+							.addComponent(lblEmailRepresentante, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Representante.createSequentialGroup()
+							.addGap(106)
+							.addComponent(textField_15, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Representante.createSequentialGroup()
+							.addGap(106)
+							.addComponent(lblFaxRepresentante, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Representante.createSequentialGroup()
+							.addGap(106)
+							.addComponent(textField_19, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Representante.createSequentialGroup()
+							.addGap(106)
+							.addComponent(lblTelefonoMovil, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_Representante.createSequentialGroup()
+							.addGap(105)
+							.addComponent(textField_6, 0, 0, Short.MAX_VALUE)
+							.addGap(18)
+							.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)))
+					.addGap(40))
 		);
 		gl_Representante.setVerticalGroup(
 			gl_Representante.createParallelGroup(Alignment.LEADING)
@@ -757,15 +772,41 @@ public class VistaWB extends JFrame implements Vista {
 					.addGap(10)
 					.addComponent(textField_19, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(11)
-					.addGroup(gl_Representante.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblTelefonoMovil)
-						.addComponent(label_3))
+					.addGroup(gl_Representante.createParallelGroup(Alignment.BASELINE)
+						.addComponent(label_3)
+						.addComponent(lblTelefonoMovil))
 					.addGap(11)
-					.addGroup(gl_Representante.createParallelGroup(Alignment.LEADING)
-						.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addGroup(gl_Representante.createParallelGroup(Alignment.BASELINE)
+						.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(26, Short.MAX_VALUE))
 		);
 		Representante.setLayout(gl_Representante);
+		GroupLayout gl_inscActvPers = new GroupLayout(inscActvPers);
+		gl_inscActvPers.setHorizontalGroup(
+			gl_inscActvPers.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_inscActvPers.createSequentialGroup()
+					.addComponent(Interesado, GroupLayout.PREFERRED_SIZE, 311, GroupLayout.PREFERRED_SIZE)
+					.addGap(63)
+					.addComponent(btnAceptarInsPers, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
+					.addGap(10)
+					.addComponent(btnCancelarInsPers, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_inscActvPers.createSequentialGroup()
+					.addGap(310)
+					.addComponent(Representante, GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE))
+		);
+		gl_inscActvPers.setVerticalGroup(
+			gl_inscActvPers.createParallelGroup(Alignment.LEADING)
+				.addComponent(Interesado, GroupLayout.PREFERRED_SIZE, 595, GroupLayout.PREFERRED_SIZE)
+				.addGroup(gl_inscActvPers.createSequentialGroup()
+					.addGap(561)
+					.addComponent(btnAceptarInsPers))
+				.addGroup(gl_inscActvPers.createSequentialGroup()
+					.addGap(561)
+					.addComponent(btnCancelarInsPers))
+				.addComponent(Representante, GroupLayout.PREFERRED_SIZE, 554, GroupLayout.PREFERRED_SIZE)
+		);
+		inscActvPers.setLayout(gl_inscActvPers);
 		panel_2.setLayout(gl_panel_2);
 
 		JPanel VisualizarLicencias = new JPanel();
@@ -775,16 +816,16 @@ public class VistaWB extends JFrame implements Vista {
 		ArrVistas[0] = VisualizarLicencias;
 
 		JScrollPane scrollPane_1 = new JScrollPane();
-		GroupLayout gl_VisualizarLicencias = new GroupLayout(VisualizarLicencias);
-		gl_VisualizarLicencias.setHorizontalGroup(
-				gl_VisualizarLicencias.createParallelGroup(Alignment.TRAILING).addGroup(Alignment.LEADING,
-						gl_VisualizarLicencias.createSequentialGroup()
-								.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 660, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		gl_VisualizarLicencias.setVerticalGroup(gl_VisualizarLicencias.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_VisualizarLicencias.createSequentialGroup().addContainerGap()
-						.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 532, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(52, Short.MAX_VALUE)));
+		
+				JButton btnInscribirActividad = new JButton("Nueva licencia");
+				btnInscribirActividad.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						lblRutaDeAcceso.setText("Inscribir Actividad");
+						controlador.cambioPantalla(inscActvPers);
+						tabbedPane.setVisible(false);
+						btnRefreshPers.setVisible(false);
+					}
+				});
 
 		table = new JTable() {
 			private static final long serialVersionUID = 9082642090247275215L;
@@ -804,12 +845,41 @@ public class VistaWB extends JFrame implements Vista {
 				}
 			}
 		});
+	       checkRepresentante.addActionListener(new ActionListener() {
+               public void actionPerformed(ActionEvent e) {
+                      if (checkRepresentante.isSelected()) {
+                             controlador.enableComponents(Representante, true);
+                      } else {
+                             controlador.enableComponents(Representante, false);
+                      }
+
+               }
+        });
 
 		table.setRowSelectionAllowed(true);
 		table.setColumnSelectionAllowed(false);
 		scrollPane_1.setViewportView(table);
+		GroupLayout gl_VisualizarLicencias = new GroupLayout(VisualizarLicencias);
+		gl_VisualizarLicencias.setHorizontalGroup(
+			gl_VisualizarLicencias.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_VisualizarLicencias.createSequentialGroup()
+					.addGap(21)
+					.addComponent(btnInscribirActividad, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(515, Short.MAX_VALUE))
+				.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
+		);
+		gl_VisualizarLicencias.setVerticalGroup(
+			gl_VisualizarLicencias.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_VisualizarLicencias.createSequentialGroup()
+					.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 543, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(btnInscribirActividad))
+		);
 		VisualizarLicencias.setLayout(gl_VisualizarLicencias);
 
+		tabbedPane.setVisible(true);
+
+		
 		JPanel inscActv = new JPanel();
 		ArrVistas[2] = inscActv;
 		Contenedor.add(inscActv, "name_29022094463246");
@@ -928,10 +998,10 @@ public class VistaWB extends JFrame implements Vista {
 		scrollPane.setBounds(473, 338, 146, 61);
 
 		JButton btnAceptarInsActv = new JButton("Aceptar");
-		btnAceptarInsActv.setBounds(529, 449, 90, 23);
+		btnAceptarInsActv.setBounds(334, 449, 90, 23);
 
 		JButton btnCancelarInsActv = new JButton("Cancelar");
-		btnCancelarInsActv.setBounds(334, 449, 95, 23);
+		btnCancelarInsActv.setBounds(524, 449, 95, 23);
 
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(473, 34, 74, 20);
@@ -1008,14 +1078,6 @@ public class VistaWB extends JFrame implements Vista {
 		inscActv.add(scrollPane);
 		inscActv.add(comboBox);
 		contentPane.setLayout(gl_contentPane);
-		btnInscribirActividad.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				lblRutaDeAcceso.setText("Inscribir Actividad");
-				controlador.cambioPantalla(inscActvPers);
-				tabbedPane.setVisible(false);
-				btnRefreshPers.setVisible(false);
-			}
-		});
 		btnVisualizarLicencias.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lblRutaDeAcceso.setText("Visualizar Licencias");
@@ -1039,19 +1101,26 @@ public class VistaWB extends JFrame implements Vista {
 				btnRefreshPers.setVisible(false);
 			}
 		});
+		btnCancelarInsPers.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				lblRutaDeAcceso.setText("Visualizar Licencias");
+				controlador.cambioPantalla(VisualizarLicencias);
+				tabbedPane.setVisible(true);
+				btnRefreshPers.setVisible(true);
+			}
+		});
 
 	}
 
-	public String getFechaInicialActBusqueda() {
-
-		// System.out.println(as);
-
-		int str = (Integer) FechaInicialActBusqueda.getDate().getDay();
-		int str2 = (Integer) FechaInicialActBusqueda.getDate().getMonth()+1;
-		int str3 = (Integer) FechaInicialActBusqueda.getDate().getYear() +1900;
-		System.out.println(str+"-"+str2+"-"+str3);
-		return str+"-"+str2+"-"+str3;
-	}
+//	public String getFechaInicialActBusqueda() {
+//
+//
+//		int str = (Integer) FechaInicialActBusqueda.getDate().getDay();
+//		int str2 = (Integer) FechaInicialActBusqueda.getDate().getMonth()+1;
+//		int str3 = (Integer) FechaInicialActBusqueda.getDate().getYear() +1900;
+//		System.out.println(str+"-"+str2+"-"+str3);
+//		return str+"-"+str2+"-"+str3;
+//	}
 
 	public String getFechaFinalActBusqueda() {
 

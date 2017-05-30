@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Dialog.ModalExclusionType;
 
 public class VistaFicheroIni extends JFrame implements Vista{
 
@@ -31,7 +32,6 @@ public class VistaFicheroIni extends JFrame implements Vista{
 	private JTextField txtfLogin;
 	private JLabel lbl;
 	private JTextField txtfURL;
-	private JButton btnModificar;
 	private JButton btnOk;
 
 
@@ -54,7 +54,6 @@ public class VistaFicheroIni extends JFrame implements Vista{
 
 		txtfBaseDatos = new JTextField();
 		txtfBaseDatos.setBounds(234, 23, 245, 20);
-		txtfBaseDatos.setEnabled(false);
 		txtfBaseDatos.setColumns(10);
 
 		JLabel lblBaseDeDatos = new JLabel("Base de Datos");
@@ -65,7 +64,6 @@ public class VistaFicheroIni extends JFrame implements Vista{
 
 		txtfLogin = new JTextField();
 		txtfLogin.setBounds(234, 54, 245, 20);
-		txtfLogin.setEnabled(false);
 		txtfLogin.setColumns(10);
 
 		JLabel lblPassword = new JLabel("Password base de datos");
@@ -73,7 +71,6 @@ public class VistaFicheroIni extends JFrame implements Vista{
 
 		txtfPassword = new JTextField();
 		txtfPassword.setBounds(234, 85, 245, 20);
-		txtfPassword.setEnabled(false);
 		txtfPassword.setColumns(10);
 
 		lbl = new JLabel("URL");
@@ -81,12 +78,10 @@ public class VistaFicheroIni extends JFrame implements Vista{
 
 		txtfURL = new JTextField();
 		txtfURL.setBounds(234, 116, 245, 20);
-		txtfURL.setEnabled(false);
 		txtfURL.setColumns(10);
 		
 		btnOk = new JButton("Aceptar");
 		btnOk.setBounds(287, 169, 91, 23);
-		btnOk.setEnabled(false);
 		
 		
 		btnCerrar = new JButton("Cerrar");
@@ -96,28 +91,17 @@ public class VistaFicheroIni extends JFrame implements Vista{
 				dispose();
 			}
 		});
-		
-		btnModificar = new JButton("Modificar");
-		btnModificar.setBounds(186, 169, 91, 23);
 		contentPane.setLayout(null);
 		contentPane.add(lblPassword);
 		contentPane.add(txtfURL);
 		contentPane.add(txtfPassword);
 		contentPane.add(btnOk);
-		contentPane.add(btnModificar);
 		contentPane.add(btnCerrar);
 		contentPane.add(lblBaseDeDatos);
 		contentPane.add(txtfBaseDatos);
 		contentPane.add(lblLogin);
 		contentPane.add(txtfLogin);
 		contentPane.add(lbl);
-		btnModificar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				controlador.Modificar();
-				
-			}
-		});
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controlador.GuardarDatos();

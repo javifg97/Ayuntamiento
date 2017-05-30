@@ -29,7 +29,7 @@ import javax.swing.Box;
 import javax.swing.SwingConstants;
 
 public class VistaAuxTabla extends JFrame {
-	private Controlador controlador;
+	private ControladorWB controlador;
 	private Modelo modelo;
 	private Container contenedor;
 	private JPanel contentPane;
@@ -111,23 +111,23 @@ public class VistaAuxTabla extends JFrame {
 		contentPane.add(lblDescripcion);
 		
 		JLabel lblCertificadoColegioOficial = new JLabel("Certificado colegio oficial");
-		lblCertificadoColegioOficial.setBounds(677, 74, 140, 14);
+		lblCertificadoColegioOficial.setBounds(677, 74, 165, 14);
 		contentPane.add(lblCertificadoColegioOficial);
 		
 		JLabel lblCertificado = new JLabel("Certificado Modelo 1");
-		lblCertificado.setBounds(677, 102, 140, 14);
+		lblCertificado.setBounds(677, 102, 165, 14);
 		contentPane.add(lblCertificado);
 		
 		JLabel lblCertificadoModelo = new JLabel("Certificado Modelo 2");
-		lblCertificadoModelo.setBounds(677, 130, 140, 14);
+		lblCertificadoModelo.setBounds(677, 130, 165, 14);
 		contentPane.add(lblCertificadoModelo);
 		
 		JLabel lblLicenciaObra = new JLabel("Licencia obra");
-		lblLicenciaObra.setBounds(677, 158, 140, 14);
+		lblLicenciaObra.setBounds(677, 158, 165, 14);
 		contentPane.add(lblLicenciaObra);
 		
 		JLabel lblOtrasAutorizaciones = new JLabel("Otras autorizaciones");
-		lblOtrasAutorizaciones.setBounds(677, 186, 140, 14);
+		lblOtrasAutorizaciones.setBounds(677, 186, 165, 14);
 		contentPane.add(lblOtrasAutorizaciones);
 		
 		lblJustificanteDePago = new JLabel("Justificante de pago");
@@ -278,12 +278,7 @@ public class VistaAuxTabla extends JFrame {
 		btnCancelar.setBounds(850, 495, 89, 23);
 		contentPane.add(btnCancelar);
 		
-		JButton btnModificar = new JButton("Modificar");
-		btnModificar.setBounds(607, 495, 89, 23);
-		contentPane.add(btnModificar);
-		
 		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.setEnabled(false);
 		btnAceptar.setBounds(728, 495, 89, 23);
 		contentPane.add(btnAceptar);
 		
@@ -470,9 +465,9 @@ public class VistaAuxTabla extends JFrame {
 		);
 		Interesado.setLayout(gl_Interesado);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(477, 322, 486, 170);
-		contentPane.add(panel);
+		JPanel Representante = new JPanel();
+		Representante.setBounds(477, 322, 486, 170);
+		contentPane.add(Representante);
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setEnabled(false);
@@ -538,18 +533,19 @@ public class VistaAuxTabla extends JFrame {
 		lblFax_1.setEnabled(false);
 		
 		JLabel lblRepresentsnte = new JLabel("REPRESENTANTE");
+		lblRepresentsnte.setEnabled(false);
 		lblRepresentsnte.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+		GroupLayout gl_Representante = new GroupLayout(Representante);
+		gl_Representante.setHorizontalGroup(
+			gl_Representante.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, gl_Representante.createSequentialGroup()
 					.addContainerGap(187, Short.MAX_VALUE)
 					.addComponent(lblRepresentsnte, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
 					.addGap(146))
-				.addGroup(gl_panel.createSequentialGroup()
+				.addGroup(gl_Representante.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
+					.addGroup(gl_Representante.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Representante.createSequentialGroup()
 							.addComponent(lblNombre, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE)
 							.addGap(9)
 							.addComponent(textField_18, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
@@ -557,7 +553,7 @@ public class VistaAuxTabla extends JFrame {
 							.addComponent(lblCodigoPostal_1, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
 							.addGap(34)
 							.addComponent(textField_13, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
+						.addGroup(gl_Representante.createSequentialGroup()
 							.addComponent(lblApellidos_1, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE)
 							.addGap(9)
 							.addComponent(textField_19, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
@@ -565,7 +561,7 @@ public class VistaAuxTabla extends JFrame {
 							.addComponent(lblTlfFijo_1, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
 							.addGap(34)
 							.addComponent(textField_14, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
+						.addGroup(gl_Representante.createSequentialGroup()
 							.addComponent(lblDocumentoIdentidad, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE)
 							.addGap(9)
 							.addComponent(textField_20, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
@@ -573,7 +569,7 @@ public class VistaAuxTabla extends JFrame {
 							.addComponent(lblTlfMovil_1, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
 							.addGap(34)
 							.addComponent(textField_15, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
+						.addGroup(gl_Representante.createSequentialGroup()
 							.addComponent(lblDireccion_1, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE)
 							.addGap(9)
 							.addComponent(textField_21, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
@@ -581,79 +577,89 @@ public class VistaAuxTabla extends JFrame {
 							.addComponent(lblFax_1, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
 							.addGap(34)
 							.addComponent(textField_16, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
+						.addGroup(gl_Representante.createSequentialGroup()
 							.addComponent(lblMunicipio_1, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE)
 							.addGap(9)
 							.addComponent(textField_22, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
-		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+		gl_Representante.setVerticalGroup(
+			gl_Representante.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, gl_Representante.createSequentialGroup()
 					.addContainerGap(38, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblRepresentsnte, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
+					.addGroup(gl_Representante.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Representante.createSequentialGroup()
 							.addGap(7)
 							.addComponent(lblNombre))
-						.addGroup(gl_panel.createSequentialGroup()
+						.addGroup(gl_Representante.createSequentialGroup()
 							.addGap(1)
 							.addComponent(textField_18, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
+						.addGroup(gl_Representante.createSequentialGroup()
 							.addGap(7)
 							.addComponent(lblCodigoPostal_1))
 						.addComponent(textField_13, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(7)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
+					.addGroup(gl_Representante.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Representante.createSequentialGroup()
 							.addGap(4)
 							.addComponent(lblApellidos_1))
-						.addGroup(gl_panel.createSequentialGroup()
+						.addGroup(gl_Representante.createSequentialGroup()
 							.addGap(1)
 							.addComponent(textField_19, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
+						.addGroup(gl_Representante.createSequentialGroup()
 							.addGap(4)
 							.addComponent(lblTlfFijo_1))
 						.addComponent(textField_14, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(4)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
+					.addGroup(gl_Representante.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Representante.createSequentialGroup()
 							.addGap(4)
 							.addComponent(lblDocumentoIdentidad))
-						.addGroup(gl_panel.createSequentialGroup()
+						.addGroup(gl_Representante.createSequentialGroup()
 							.addGap(1)
 							.addComponent(textField_20, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
+						.addGroup(gl_Representante.createSequentialGroup()
 							.addGap(4)
 							.addComponent(lblTlfMovil_1))
 						.addComponent(textField_15, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(4)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
+					.addGroup(gl_Representante.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Representante.createSequentialGroup()
 							.addGap(4)
 							.addComponent(lblDireccion_1))
-						.addGroup(gl_panel.createSequentialGroup()
+						.addGroup(gl_Representante.createSequentialGroup()
 							.addGap(1)
 							.addComponent(textField_21, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
+						.addGroup(gl_Representante.createSequentialGroup()
 							.addGap(4)
 							.addComponent(lblFax_1))
 						.addComponent(textField_16, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(5)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
+					.addGroup(gl_Representante.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Representante.createSequentialGroup()
 							.addGap(3)
 							.addComponent(lblMunicipio_1))
 						.addComponent(textField_22, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(7))
 		);
-		panel.setLayout(gl_panel);
+		Representante.setLayout(gl_Representante);
+		chckbxPersonaJuridica.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                   if (chckbxPersonaJuridica.isSelected()) {
+                          controlador.enableComponents(Representante, true);
+                   } else {
+                          controlador.enableComponents(Representante, false);
+                   }
+
+            }
+     });
 	}
 
 	public void setControlador(Controlador controlador) {
-		this.controlador = controlador;
+		this.controlador = (ControladorWB) controlador;
 	}
 
 	public Container getContenedor() {

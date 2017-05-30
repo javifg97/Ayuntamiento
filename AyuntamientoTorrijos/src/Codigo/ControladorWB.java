@@ -1,6 +1,7 @@
 package Codigo;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.EventQueue;
 import java.lang.reflect.Array;
@@ -62,9 +63,11 @@ public class ControladorWB extends JFrame implements Controlador {
 		vistaTabla.setVisible(true);
 
 	}
-	public void GuardarDatos(){
-		
-		modeloFicheroIni.GuardarDatos(vistaFicheroIni.getTxtfBaseDatos(), vistaFicheroIni.getTxtfLogin(), vistaFicheroIni.getTxtfPassword(), vistaFicheroIni.getTxtfURL());
+
+	public void GuardarDatos() {
+
+		modeloFicheroIni.GuardarDatos(vistaFicheroIni.getTxtfBaseDatos(), vistaFicheroIni.getTxtfLogin(),
+				vistaFicheroIni.getTxtfPassword(), vistaFicheroIni.getTxtfURL());
 	}
 
 	public void ventanaConfiguracion() {
@@ -73,12 +76,10 @@ public class ControladorWB extends JFrame implements Controlador {
 		vistaFichero.setModeloFich(modeloFicheroIni);
 		vistaFichero.setModeloBBDD(modelo2);
 		modeloFicheroIni.setVista(vistaFichero);
-		
+
 		modeloFicheroIni.setDatos();
 		setVistaFichero(vistaFichero);
 
-		
-		
 		vistaFichero.setVisible(true);
 	}
 
@@ -86,8 +87,6 @@ public class ControladorWB extends JFrame implements Controlador {
 
 		modelo2.refrescar();
 	}
-
-
 
 	public void busquedaPersonaJur() {
 		String nif = vista.getNIFBusquedaPJ();
@@ -97,14 +96,27 @@ public class ControladorWB extends JFrame implements Controlador {
 	}
 
 	public void busquedaActividad() {
-		String fechaInicial = vista.getFechaInicialActBusqueda();
+//		String fechaInicial = vista.getFechaInicialActBusqueda();
 		String fechaFinal = vista.getFechaFinalActBusqueda();
 		String tipo = vista.getTxtfActBusqueda();
-		modelo2.Consulta3(tipo, fechaInicial, fechaFinal);
+		modelo2.Consulta3(tipo, "dd-MMM-yyyy", fechaFinal);
 
 	}
-	public void Modificar(){
-		modeloFicheroIni.Modificar(vistaFicheroIni.getTxtfBaseDatosEnb(), vistaFicheroIni.getTxtfLoginEnb(), vistaFicheroIni.getTxtfPasswordEnb(), vistaFicheroIni.getTxtfURLEnb(), vistaFicheroIni.getBtnOk());
+
+	public void Modificar() {
+		modeloFicheroIni.Modificar(vistaFicheroIni.getTxtfBaseDatosEnb(), vistaFicheroIni.getTxtfLoginEnb(),
+				vistaFicheroIni.getTxtfPasswordEnb(), vistaFicheroIni.getTxtfURLEnb(), vistaFicheroIni.getBtnOk());
+	}
+
+	public void enableComponents(Container container, boolean enable) {
+		Component[] components = container.getComponents();
+		for (Component component : components) {
+			component.setEnabled(enable);
+			if (component instanceof Container) {
+				enableComponents((Container) component, enable);
+			}
+		}
+
 	}
 
 }
