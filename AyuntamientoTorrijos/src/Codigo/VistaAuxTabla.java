@@ -107,7 +107,7 @@ public class VistaAuxTabla extends JFrame {
 		contentPane.add(lblCuota);
 		
 		JLabel lblDescripcion = new JLabel("Descripcion");
-		lblDescripcion.setBounds(677, 211, 63, 14);
+		lblDescripcion.setBounds(677, 211, 93, 14);
 		contentPane.add(lblDescripcion);
 		
 		JLabel lblCertificadoColegioOficial = new JLabel("Certificado colegio oficial");
@@ -217,7 +217,7 @@ public class VistaAuxTabla extends JFrame {
 		contentPane.add(checkBox_3);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(750, 211, 193, 70);
+		scrollPane.setBounds(780, 211, 183, 70);
 		contentPane.add(scrollPane);
 		
 		JTextPane textPane = new JTextPane();

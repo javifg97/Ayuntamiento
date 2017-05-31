@@ -74,26 +74,26 @@ public class VistaWB extends JFrame implements Vista {
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	private final ButtonGroup buttonGroup_2 = new ButtonGroup();
 	private final ButtonGroup buttonGroup_3 = new ButtonGroup();
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_10;
-	private JTextField textField_11;
-	private JTextField textField_12;
-	private JTextField textField_13;
-	private JTextField textField_14;
-	private JTextField textField_16;
-	private JTextField textField_17;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_15;
-	private JTextField textField_18;
-	private JTextField textField_19;
+	private JTextField txtfInscNom;
+	private JTextField txtfInscApll;
+	private JTextField txtfInscRaz;
+	private JTextField txtfInscCIF;
+	private JTextField txtfInscDir;
+	private JTextField txtfInscCP;
+	private JTextField txtfInscRTlfMo;
+	private JTextField txtfInscRTlfFij;
+	private JTextField txtfInscTlfFij;
+	private JTextField txtfInscTlfMo;
+	private JTextField txtfInscRCP;
+	private JTextField txtfInscRMun;
+	private JTextField txtfInscRDNI;
+	private JTextField txtfInscRApll;
+	private JTextField txtfInscRNom;
+	private JTextField txtfInscRDir;
+	private JTextField txtfInscMail;
+	private JTextField txtfInscRMail;
+	private JTextField txtfInscFax;
+	private JTextField txtfInscRFax;
 	private JTextField txtfLocal;
 	private JTextField txtfTipo;
 	private JTextField txtfCuota;
@@ -105,6 +105,24 @@ public class VistaWB extends JFrame implements Vista {
 	private JDateChooser FechaInicialActBusqueda;
 	private JDateChooser FechaFinalActBusqueda;
 	private JButton btnConfiguracion;
+	private JTextField txtfInscMun;
+	private JTextField textField;
+	private JCheckBox chckFotocopiaLicenciaObra;
+	private JCheckBox chckJustificantePago;
+	private JCheckBox chckFotocopiaEscritura;
+	private JCheckBox chckFotocopiaModelo36;
+	private JCheckBox chckPlanos;
+	private JCheckBox chckCD;
+	private JCheckBox chckMemoria;
+	private JCheckBox chckFotografia;
+	private JCheckBox chckbxEntregado;
+	private JCheckBox chckbxEntregado_1;
+	private JCheckBox chckbxEntregado_2;
+	private JCheckBox chckCertificadoColegio;
+	private JComboBox cbTipoSuelo;
+	private JDateChooser DCFechaSolicitud;
+	private JDateChooser DCFechaInicio;
+	private JTextPane txtDescripcion;
 
 	public void setControlador(Controlador controlador) {
 
@@ -416,110 +434,91 @@ public class VistaWB extends JFrame implements Vista {
 		
 				JLabel lblNombre_1 = new JLabel("Nombre");
 		
-				textField = new JTextField();
-				textField.setColumns(10);
+				txtfInscNom = new JTextField();
+				txtfInscNom.setColumns(10);
 		
 				JLabel lblApellidos_1 = new JLabel("Apellidos");
 		
-				textField_1 = new JTextField();
-				textField_1.setColumns(10);
+				txtfInscApll = new JTextField();
+				txtfInscApll.setColumns(10);
 		
 				JLabel lblRazonSocial_1 = new JLabel("Razon social");
 		
-				textField_2 = new JTextField();
-				textField_2.setColumns(10);
+				txtfInscRaz = new JTextField();
+				txtfInscRaz.setColumns(10);
 		
 				JLabel lblCif = new JLabel("CIF");
 		
-				textField_3 = new JTextField();
-				textField_3.setColumns(10);
+				txtfInscCIF = new JTextField();
+				txtfInscCIF.setColumns(10);
 		
 				JLabel lblDireccion = new JLabel("Direccion");
 		
-				textField_4 = new JTextField();
-				textField_4.setColumns(10);
+				txtfInscDir = new JTextField();
+				txtfInscDir.setColumns(10);
 		
 				JLabel lblCodigoPostal = new JLabel("Codigo postal");
 		
-				textField_5 = new JTextField();
-				textField_5.setColumns(10);
+				txtfInscCP = new JTextField();
+				txtfInscCP.setColumns(10);
 		
 				JLabel lblEmailInteresado = new JLabel("Email interesado");
 		
-				textField_9 = new JTextField();
-				textField_9.setColumns(10);
+				txtfInscMail = new JTextField();
+				txtfInscMail.setColumns(10);
 		
 				JLabel lblFaxInteresado = new JLabel("Fax interesado");
 		
-				textField_18 = new JTextField();
-				textField_18.setColumns(10);
+				txtfInscFax = new JTextField();
+				txtfInscFax.setColumns(10);
 		
 				JLabel label_2 = new JLabel("Telefono movil");
 		
 				JLabel lblTelefonoFijo = new JLabel("Telefono fijo");
 		
-				textField_11 = new JTextField();
-				textField_11.setColumns(10);
+				txtfInscTlfMo = new JTextField();
+				txtfInscTlfMo.setColumns(10);
 		
-				textField_10 = new JTextField();
-				textField_10.setColumns(10);
+				txtfInscTlfFij = new JTextField();
+				txtfInscTlfFij.setColumns(10);
 		
 				JCheckBox checkRepresentante = new JCheckBox("Persona Jur\u00EDdica");
+		
+		JLabel lblMunicipio_1 = new JLabel("Municipio");
+		
+		txtfInscMun = new JTextField();
+		txtfInscMun.setColumns(10);
 		GroupLayout gl_Interesado = new GroupLayout(Interesado);
 		gl_Interesado.setHorizontalGroup(
-			gl_Interesado.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_Interesado.createSequentialGroup()
-					.addContainerGap(118, Short.MAX_VALUE)
+			gl_Interesado.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_Interesado.createSequentialGroup()
+					.addContainerGap(69, Short.MAX_VALUE)
 					.addGroup(gl_Interesado.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_Interesado.createSequentialGroup()
 							.addGap(48)
 							.addComponent(lblInteresado))
 						.addGroup(gl_Interesado.createSequentialGroup()
 							.addGap(2)
-							.addComponent(lblNombre_1, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Interesado.createSequentialGroup()
-							.addGap(2)
-							.addComponent(textField, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Interesado.createSequentialGroup()
-							.addGap(2)
-							.addComponent(lblApellidos_1, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Interesado.createSequentialGroup()
-							.addGap(2)
-							.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Interesado.createSequentialGroup()
-							.addGap(2)
-							.addComponent(lblRazonSocial_1, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Interesado.createSequentialGroup()
-							.addGap(2)
-							.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Interesado.createSequentialGroup()
-							.addGap(2)
-							.addComponent(lblCif, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Interesado.createSequentialGroup()
-							.addGap(2)
-							.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Interesado.createSequentialGroup()
-							.addGap(2)
 							.addComponent(lblDireccion, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_Interesado.createSequentialGroup()
 							.addGap(2)
-							.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+							.addComponent(txtfInscDir, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_Interesado.createSequentialGroup()
 							.addGap(2)
 							.addComponent(lblCodigoPostal, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_Interesado.createSequentialGroup()
 							.addGap(2)
-							.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+							.addComponent(txtfInscCP, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
 						.addComponent(lblEmailInteresado, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_Interesado.createSequentialGroup()
 							.addGap(2)
-							.addComponent(textField_9, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+							.addComponent(txtfInscMail, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_Interesado.createSequentialGroup()
 							.addGap(2)
 							.addComponent(lblFaxInteresado, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_Interesado.createSequentialGroup()
 							.addGap(2)
-							.addComponent(textField_18, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+							.addComponent(txtfInscFax, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_Interesado.createSequentialGroup()
 							.addGap(2)
 							.addComponent(label_2, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
@@ -530,9 +529,22 @@ public class VistaWB extends JFrame implements Vista {
 							.addGroup(gl_Interesado.createParallelGroup(Alignment.LEADING)
 								.addComponent(checkRepresentante, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_Interesado.createSequentialGroup()
-									.addComponent(textField_11, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addComponent(txtfInscTlfMo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 									.addGap(8)
-									.addComponent(textField_10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))))
+									.addComponent(txtfInscTlfFij, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+						.addGroup(gl_Interesado.createSequentialGroup()
+							.addGap(2)
+							.addGroup(gl_Interesado.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(txtfInscNom, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+								.addComponent(lblNombre_1, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+								.addComponent(lblApellidos_1, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+								.addComponent(txtfInscApll, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+								.addComponent(lblRazonSocial_1, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+								.addComponent(txtfInscRaz, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+								.addComponent(lblCif, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+								.addComponent(txtfInscCIF, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+								.addComponent(lblMunicipio_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(txtfInscMun))))
 					.addGap(58))
 		);
 		gl_Interesado.setVerticalGroup(
@@ -540,49 +552,53 @@ public class VistaWB extends JFrame implements Vista {
 				.addGroup(gl_Interesado.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(lblInteresado, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
-					.addGap(11)
+					.addGap(4)
 					.addComponent(lblNombre_1)
-					.addGap(11)
-					.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(11)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(txtfInscNom, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblApellidos_1)
-					.addGap(11)
-					.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(11)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(txtfInscApll, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblRazonSocial_1)
-					.addGap(11)
-					.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(11)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(txtfInscRaz, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblCif)
-					.addGap(11)
-					.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(11)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(txtfInscCIF, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblMunicipio_1)
+					.addGap(7)
+					.addComponent(txtfInscMun, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblDireccion)
 					.addGap(11)
-					.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addComponent(txtfInscDir, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(11)
 					.addComponent(lblCodigoPostal)
 					.addGap(11)
-					.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addComponent(txtfInscCP, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(11)
 					.addComponent(lblEmailInteresado)
 					.addGap(11)
-					.addComponent(textField_9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addComponent(txtfInscMail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(11)
 					.addComponent(lblFaxInteresado)
 					.addGap(7)
-					.addComponent(textField_18, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addComponent(txtfInscFax, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(14)
 					.addGroup(gl_Interesado.createParallelGroup(Alignment.LEADING)
 						.addComponent(label_2)
 						.addComponent(lblTelefonoFijo))
 					.addGap(11)
 					.addGroup(gl_Interesado.createParallelGroup(Alignment.LEADING)
-						.addComponent(textField_11, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField_10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(txtfInscTlfMo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtfInscTlfFij, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
 					.addComponent(checkRepresentante)
-					.addContainerGap(15, Short.MAX_VALUE))
+					.addContainerGap(26, Short.MAX_VALUE))
 		);
 		Interesado.setLayout(gl_Interesado);
 		
@@ -600,210 +616,198 @@ public class VistaWB extends JFrame implements Vista {
 				JLabel label_10 = new JLabel("Nombre");
 				label_10.setEnabled(false);
 		
-				textField_17 = new JTextField();
-				textField_17.setEnabled(false);
-				textField_17.setColumns(10);
+				txtfInscRNom = new JTextField();
+				txtfInscRNom.setEnabled(false);
+				txtfInscRNom.setColumns(10);
 		
 				JLabel label_9 = new JLabel("Apellidos");
 				label_9.setEnabled(false);
 		
-				textField_16 = new JTextField();
-				textField_16.setEnabled(false);
-				textField_16.setColumns(10);
+				txtfInscRApll = new JTextField();
+				txtfInscRApll.setEnabled(false);
+				txtfInscRApll.setColumns(10);
 		
 				JLabel lblDocumentoDeIdentidad = new JLabel("Documento de identidad");
 				lblDocumentoDeIdentidad.setEnabled(false);
 		
-				textField_14 = new JTextField();
-				textField_14.setEnabled(false);
-				textField_14.setColumns(10);
+				txtfInscRDNI = new JTextField();
+				txtfInscRDNI.setEnabled(false);
+				txtfInscRDNI.setColumns(10);
 		
 				JLabel label_5 = new JLabel("Direccion");
 				label_5.setEnabled(false);
 		
-				textField_13 = new JTextField();
-				textField_13.setEnabled(false);
-				textField_13.setColumns(10);
+				txtfInscRMun = new JTextField();
+				txtfInscRMun.setEnabled(false);
+				txtfInscRMun.setColumns(10);
 		
 				JLabel lblMunicipio = new JLabel("Municipio");
 				lblMunicipio.setEnabled(false);
 		
-				textField_8 = new JTextField();
-				textField_8.setEnabled(false);
-				textField_8.setColumns(10);
+				txtfInscRDir = new JTextField();
+				txtfInscRDir.setEnabled(false);
+				txtfInscRDir.setColumns(10);
 		
 				JLabel label_4 = new JLabel("Codigo postal");
 				label_4.setEnabled(false);
 		
-				textField_12 = new JTextField();
-				textField_12.setEnabled(false);
-				textField_12.setColumns(10);
+				txtfInscRCP = new JTextField();
+				txtfInscRCP.setEnabled(false);
+				txtfInscRCP.setColumns(10);
 		
 				JLabel lblEmailRepresentante = new JLabel("Email representante");
 				lblEmailRepresentante.setEnabled(false);
 		
-				textField_15 = new JTextField();
-				textField_15.setEnabled(false);
-				textField_15.setColumns(10);
+				txtfInscRMail = new JTextField();
+				txtfInscRMail.setEnabled(false);
+				txtfInscRMail.setColumns(10);
 		
 				JLabel lblFaxRepresentante = new JLabel("Fax representante");
 				lblFaxRepresentante.setEnabled(false);
 		
-				textField_19 = new JTextField();
-				textField_19.setEnabled(false);
-				textField_19.setColumns(10);
+				txtfInscRFax = new JTextField();
+				txtfInscRFax.setEnabled(false);
+				txtfInscRFax.setColumns(10);
 		
 				JLabel lblTelefonoMovil = new JLabel("Telefono movil");
 				lblTelefonoMovil.setEnabled(false);
 		
-				textField_6 = new JTextField();
-				textField_6.setEnabled(false);
-				textField_6.setColumns(10);
+				txtfInscRTlfMo = new JTextField();
+				txtfInscRTlfMo.setEnabled(false);
+				txtfInscRTlfMo.setColumns(10);
 		
-				textField_7 = new JTextField();
-				textField_7.setEnabled(false);
-				textField_7.setColumns(10);
+				txtfInscRTlfFij = new JTextField();
+				txtfInscRTlfFij.setEnabled(false);
+				txtfInscRTlfFij.setColumns(10);
 		
 				JLabel label_3 = new JLabel("Telefono fijo");
 				label_3.setEnabled(false);
+		
+		JLabel lblRazonSocial_2 = new JLabel("Razon social");
+		lblRazonSocial_2.setEnabled(false);
+		
+		textField = new JTextField();
+		textField.setEnabled(false);
+		textField.setColumns(10);
 		GroupLayout gl_Representante = new GroupLayout(Representante);
 		gl_Representante.setHorizontalGroup(
-			gl_Representante.createParallelGroup(Alignment.LEADING)
+			gl_Representante.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_Representante.createSequentialGroup()
+					.addContainerGap(106, Short.MAX_VALUE)
 					.addGroup(gl_Representante.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_Representante.createSequentialGroup()
-							.addGap(147)
-							.addComponent(lblRepresentante))
-						.addGroup(gl_Representante.createSequentialGroup()
-							.addGap(106)
-							.addComponent(label_10, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Representante.createSequentialGroup()
-							.addGap(106)
-							.addComponent(textField_17, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Representante.createSequentialGroup()
-							.addGap(106)
-							.addComponent(label_9, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Representante.createSequentialGroup()
-							.addGap(106)
-							.addComponent(textField_16, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Representante.createSequentialGroup()
-							.addGap(106)
-							.addComponent(lblDocumentoDeIdentidad, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Representante.createSequentialGroup()
-							.addGap(106)
-							.addComponent(textField_14, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Representante.createSequentialGroup()
-							.addGap(106)
-							.addComponent(label_5, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Representante.createSequentialGroup()
-							.addGap(106)
-							.addComponent(textField_13, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Representante.createSequentialGroup()
-							.addGap(106)
-							.addComponent(lblMunicipio, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Representante.createSequentialGroup()
-							.addGap(106)
-							.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Representante.createSequentialGroup()
-							.addGap(106)
-							.addComponent(label_4, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Representante.createSequentialGroup()
-							.addGap(106)
-							.addComponent(textField_12, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Representante.createSequentialGroup()
-							.addGap(106)
-							.addComponent(lblEmailRepresentante, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Representante.createSequentialGroup()
-							.addGap(106)
-							.addComponent(textField_15, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Representante.createSequentialGroup()
-							.addGap(106)
-							.addComponent(lblFaxRepresentante, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Representante.createSequentialGroup()
-							.addGap(106)
-							.addComponent(textField_19, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Representante.createSequentialGroup()
-							.addGap(106)
-							.addComponent(lblTelefonoMovil, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_Representante.createSequentialGroup()
-							.addGap(105)
-							.addComponent(textField_6, 0, 0, Short.MAX_VALUE)
-							.addGap(18)
-							.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)))
-					.addGap(40))
+						.addGroup(gl_Representante.createParallelGroup(Alignment.LEADING)
+							.addComponent(label_10, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
+							.addComponent(lblRazonSocial_2)
+							.addGroup(gl_Representante.createParallelGroup(Alignment.TRAILING, false)
+								.addComponent(txtfInscRApll, Alignment.LEADING)
+								.addComponent(txtfInscRNom, Alignment.LEADING)
+								.addComponent(label_9, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+								.addComponent(textField, Alignment.LEADING))
+							.addGroup(Alignment.TRAILING, gl_Representante.createSequentialGroup()
+								.addGroup(gl_Representante.createParallelGroup(Alignment.TRAILING, false)
+									.addComponent(txtfInscRTlfMo, Alignment.LEADING, 0, 0, Short.MAX_VALUE)
+									.addComponent(lblTelefonoMovil, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE))
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addGroup(gl_Representante.createParallelGroup(Alignment.LEADING)
+									.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+									.addComponent(txtfInscRTlfFij, GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(txtfInscRFax, GroupLayout.PREFERRED_SIZE, 186, GroupLayout.PREFERRED_SIZE)
+							.addGroup(gl_Representante.createSequentialGroup()
+								.addGap(2)
+								.addGroup(gl_Representante.createParallelGroup(Alignment.LEADING, false)
+									.addComponent(lblDocumentoDeIdentidad, GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+									.addComponent(label_5, GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+									.addComponent(label_4, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE)
+									.addGroup(gl_Representante.createSequentialGroup()
+										.addGap(2)
+										.addGroup(gl_Representante.createParallelGroup(Alignment.LEADING, false)
+											.addComponent(lblEmailRepresentante, GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+											.addComponent(txtfInscRMail, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+											.addComponent(lblFaxRepresentante, GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+											.addComponent(txtfInscRCP)))
+									.addComponent(lblMunicipio, GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+									.addComponent(txtfInscRDir)
+									.addComponent(txtfInscRDNI)
+									.addComponent(txtfInscRMun))))
+						.addComponent(lblRepresentante))
+					.addGap(38))
 		);
 		gl_Representante.setVerticalGroup(
 			gl_Representante.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_Representante.createSequentialGroup()
-					.addGap(11)
+					.addGap(7)
 					.addComponent(lblRepresentante)
-					.addGap(9)
+					.addGap(1)
 					.addComponent(label_10)
-					.addGap(11)
-					.addComponent(textField_17, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(11)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(txtfInscRNom, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(label_9)
-					.addGap(11)
-					.addComponent(textField_16, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(11)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(txtfInscRApll, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblRazonSocial_2)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblDocumentoDeIdentidad)
-					.addGap(11)
-					.addComponent(textField_14, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(11)
-					.addComponent(label_5)
-					.addGap(11)
-					.addComponent(textField_13, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(11)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(txtfInscRDNI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblMunicipio)
-					.addGap(11)
-					.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(11)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(txtfInscRMun, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(label_5)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(txtfInscRDir, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(label_4)
-					.addGap(11)
-					.addComponent(textField_12, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(11)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(txtfInscRCP, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblEmailRepresentante)
-					.addGap(11)
-					.addComponent(textField_15, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(11)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(txtfInscRMail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblFaxRepresentante)
-					.addGap(10)
-					.addComponent(textField_19, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(11)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(txtfInscRFax, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_Representante.createParallelGroup(Alignment.BASELINE)
-						.addComponent(label_3)
-						.addComponent(lblTelefonoMovil))
-					.addGap(11)
+						.addComponent(lblTelefonoMovil)
+						.addComponent(label_3))
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_Representante.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(26, Short.MAX_VALUE))
+						.addComponent(txtfInscRTlfMo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtfInscRTlfFij, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(75, Short.MAX_VALUE))
 		);
 		Representante.setLayout(gl_Representante);
 		GroupLayout gl_inscActvPers = new GroupLayout(inscActvPers);
 		gl_inscActvPers.setHorizontalGroup(
 			gl_inscActvPers.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_inscActvPers.createSequentialGroup()
-					.addComponent(Interesado, GroupLayout.PREFERRED_SIZE, 311, GroupLayout.PREFERRED_SIZE)
-					.addGap(63)
-					.addComponent(btnAceptarInsPers, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
-					.addGap(10)
-					.addComponent(btnCancelarInsPers, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_inscActvPers.createSequentialGroup()
-					.addGap(310)
-					.addComponent(Representante, GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE))
+					.addGroup(gl_inscActvPers.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_inscActvPers.createSequentialGroup()
+							.addComponent(Interesado, GroupLayout.PREFERRED_SIZE, 311, GroupLayout.PREFERRED_SIZE)
+							.addGap(63)
+							.addComponent(btnAceptarInsPers, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
+							.addGap(72)
+							.addComponent(btnCancelarInsPers, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_inscActvPers.createSequentialGroup()
+							.addGap(310)
+							.addComponent(Representante, GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE)))
+					.addGap(13))
 		);
 		gl_inscActvPers.setVerticalGroup(
 			gl_inscActvPers.createParallelGroup(Alignment.LEADING)
 				.addComponent(Interesado, GroupLayout.PREFERRED_SIZE, 595, GroupLayout.PREFERRED_SIZE)
 				.addGroup(gl_inscActvPers.createSequentialGroup()
 					.addGap(561)
-					.addComponent(btnAceptarInsPers))
-				.addGroup(gl_inscActvPers.createSequentialGroup()
-					.addGap(561)
-					.addComponent(btnCancelarInsPers))
+					.addGroup(gl_inscActvPers.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnAceptarInsPers)
+						.addComponent(btnCancelarInsPers)))
 				.addComponent(Representante, GroupLayout.PREFERRED_SIZE, 554, GroupLayout.PREFERRED_SIZE)
 		);
 		inscActvPers.setLayout(gl_inscActvPers);
@@ -938,37 +942,37 @@ public class VistaWB extends JFrame implements Vista {
 		JLabel lblNewLabel_17 = new JLabel("Certificado del Colegio Oficial");
 		lblNewLabel_17.setBounds(37, 489, 166, 14);
 
-		JCheckBox chckFotocopiaLicenciaObra = new JCheckBox("");
+		chckFotocopiaLicenciaObra = new JCheckBox("");
 		chckFotocopiaLicenciaObra.setBounds(245, 38, 23, 23);
 
-		JCheckBox chckJustificantePago = new JCheckBox("");
+		chckJustificantePago = new JCheckBox("");
 		chckJustificantePago.setBounds(245, 75, 23, 23);
 
-		JCheckBox chckFotocopiaEscritura = new JCheckBox("");
+		chckFotocopiaEscritura = new JCheckBox("");
 		chckFotocopiaEscritura.setBounds(245, 116, 23, 23);
 
-		JCheckBox chckFotocopiaModelo36 = new JCheckBox("");
+		chckFotocopiaModelo36 = new JCheckBox("");
 		chckFotocopiaModelo36.setBounds(245, 157, 23, 23);
 
-		JCheckBox chckPlanos = new JCheckBox("");
+		chckPlanos = new JCheckBox("");
 		chckPlanos.setBounds(245, 198, 23, 23);
 
-		JCheckBox chckCD = new JCheckBox("");
+		chckCD = new JCheckBox("");
 		chckCD.setBounds(245, 239, 23, 23);
 
-		JCheckBox chckMemoria = new JCheckBox("");
+		chckMemoria = new JCheckBox("");
 		chckMemoria.setBounds(245, 280, 23, 23);
 
-		JCheckBox chckFotografia = new JCheckBox("");
+		chckFotografia = new JCheckBox("");
 		chckFotografia.setBounds(245, 321, 23, 23);
 
-		JCheckBox chckCertificadoColegio = new JCheckBox("");
+		chckCertificadoColegio = new JCheckBox("");
 		chckCertificadoColegio.setBounds(245, 485, 23, 23);
 
-		JDateChooser DCFechaSolicitud = new JDateChooser();
+		DCFechaSolicitud = new JDateChooser();
 		DCFechaSolicitud.setBounds(473, 72, 146, 20);
 
-		JDateChooser DCFechaInicio = new JDateChooser();
+		DCFechaInicio = new JDateChooser();
 		DCFechaInicio.setBounds(473, 110, 146, 20);
 
 		txtfLocal = new JTextField();
@@ -1003,33 +1007,33 @@ public class VistaWB extends JFrame implements Vista {
 		JButton btnCancelarInsActv = new JButton("Cancelar");
 		btnCancelarInsActv.setBounds(524, 449, 95, 23);
 
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(473, 34, 74, 20);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] { "Urbano", "Rústico" }));
+		cbTipoSuelo = new JComboBox();
+		cbTipoSuelo.setBounds(473, 34, 74, 20);
+		cbTipoSuelo.setModel(new DefaultComboBoxModel(new String[] { "Urbano", "Rústico" }));
 
 		JLabel lblNewLabel_18 = new JLabel("Fotocopia DNI/CIF/NIE");
 		lblNewLabel_18.setBounds(37, 366, 139, 14);
 
-		JCheckBox chckbxEntregado = new JCheckBox("");
+		chckbxEntregado = new JCheckBox("");
 		chckbxEntregado.setBounds(245, 362, 23, 23);
 
 		JLabel lblCertificado = new JLabel("Certificado 1");
 		lblCertificado.setBounds(37, 407, 139, 14);
 
-		JCheckBox chckbxEntregado_1 = new JCheckBox("");
+		chckbxEntregado_1 = new JCheckBox("");
 		chckbxEntregado_1.setBounds(245, 403, 23, 23);
 
 		JLabel lblCertificado_1 = new JLabel("Certificado2");
 		lblCertificado_1.setBounds(37, 453, 139, 14);
 
-		JCheckBox chckbxEntregado_2 = new JCheckBox("");
+		chckbxEntregado_2 = new JCheckBox("");
 		chckbxEntregado_2.setBounds(245, 449, 23, 23);
 
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(313, 0, 2, 573);
 		separator_1.setOrientation(SwingConstants.VERTICAL);
 
-		JTextPane txtDescripcion = new JTextPane();
+		txtDescripcion = new JTextPane();
 		scrollPane.setViewportView(txtDescripcion);
 		inscActv.setLayout(null);
 		inscActv.add(lblNewLabel_17);
@@ -1076,7 +1080,7 @@ public class VistaWB extends JFrame implements Vista {
 		inscActv.add(DCFechaSolicitud);
 		inscActv.add(btnAceptarInsActv);
 		inscActv.add(scrollPane);
-		inscActv.add(comboBox);
+		inscActv.add(cbTipoSuelo);
 		contentPane.setLayout(gl_contentPane);
 		btnVisualizarLicencias.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
