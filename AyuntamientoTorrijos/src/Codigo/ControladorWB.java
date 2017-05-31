@@ -96,7 +96,7 @@ public class ControladorWB extends JFrame implements Controlador {
 	}
 
 	public void busquedaActividad() {
-//		String fechaInicial = vista.getFechaInicialActBusqueda();
+		// String fechaInicial = vista.getFechaInicialActBusqueda();
 		String fechaFinal = vista.getFechaFinalActBusqueda();
 		String tipo = vista.getTxtfActBusqueda();
 		modelo2.Consulta3(tipo, "dd-MMM-yyyy", fechaFinal);
@@ -118,5 +118,27 @@ public class ControladorWB extends JFrame implements Controlador {
 		}
 
 	}
+
+	public int insetarPersona() {
+		return modelo2.insertarPersona(vista.getTxtfInscNom(),vista.getTxtfInscApll(),vista.getTxtfInscCIF(),vista.getTxtfInscMun(),vista.getTxtfInscDir(),vista.getTxtfInscCP(),vista.getTxtfInscMail(),vista.getTxtfInscFax(),vista.getTxtfInscTlfMo(),vista.getTxtfInscTlfFij());
+	}
+
+	public int inscribirActividad() {
+		return modelo2.insertarActividad(vista.getChckFotocopiaLicenciaObra(),vista.getChckOtrasAut(),vista.getChckJustificantePago(),vista.getChckFotocopiaEscritura(),vista.getChckFotocopiaModelo36(),vista.getChckPlanos(),vista.getChckCD(),vista.getChckMemoria(),vista.getChckFotografia(),vista.getCbTipoSuelo(),vista.getTxtfReferenciaCatastral(),vista.getTxtfLocal(),vista.getTxtfTipo(),vista.getTxtfEmplazamiento(),vista.getDCFechaInicio(),vista.getDCFechaSolicitud(),vista.getTxtfCuota(),vista.getTxtDescripcion(),vista.getChckCertificadoColegio(),vista.getChckbxCer1(),vista.getChckbxCer2(),vista.getChckbxFtcDNI());
+	}
+
+	public int insertarRepresentante() {
+		return modelo2.insertarRepresentante(vista.getTxtfInscRNom(),vista.getTxtfInscRApll(),vista.getTxtfInscRDNI(),vista.getTxtfInscRMun(),vista.getTxtfInscRDir(),vista.getTxtfInscRCP(),vista.getTxtfInscRMail(),vista.getTxtfInscRFax(),vista.getTxtfInscRTlfMo(),vista.getTxtfInscRTlfFij());
+	}
+
+	public void inscribirTablaInter(int idPer, int idAct) {
+		modelo2.inscribirTablaInter(idPer,idAct);
+	}
+
+	public void inscribirTablaInterRep(int idPer, int idRep) {
+		modelo2.inscribirTablaInterRep(idPer,idRep);
+		
+	}
+	
 
 }

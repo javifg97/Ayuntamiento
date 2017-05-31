@@ -76,7 +76,6 @@ public class VistaWB extends JFrame implements Vista {
 	private final ButtonGroup buttonGroup_3 = new ButtonGroup();
 	private JTextField txtfInscNom;
 	private JTextField txtfInscApll;
-	private JTextField txtfInscRaz;
 	private JTextField txtfInscCIF;
 	private JTextField txtfInscDir;
 	private JTextField txtfInscCP;
@@ -106,7 +105,6 @@ public class VistaWB extends JFrame implements Vista {
 	private JDateChooser FechaFinalActBusqueda;
 	private JButton btnConfiguracion;
 	private JTextField txtfInscMun;
-	private JTextField textField;
 	private JCheckBox chckFotocopiaLicenciaObra;
 	private JCheckBox chckJustificantePago;
 	private JCheckBox chckFotocopiaEscritura;
@@ -115,14 +113,16 @@ public class VistaWB extends JFrame implements Vista {
 	private JCheckBox chckCD;
 	private JCheckBox chckMemoria;
 	private JCheckBox chckFotografia;
-	private JCheckBox chckbxEntregado;
-	private JCheckBox chckbxEntregado_1;
-	private JCheckBox chckbxEntregado_2;
+	private JCheckBox chckbxFtcDNI;
+	private JCheckBox chckbxCer1;
+	private JCheckBox chckbxCer2;
 	private JCheckBox chckCertificadoColegio;
 	private JComboBox cbTipoSuelo;
 	private JDateChooser DCFechaSolicitud;
 	private JDateChooser DCFechaInicio;
 	private JTextPane txtDescripcion;
+	private JCheckBox checkRepresentante;
+	private JCheckBox chckOtrasAut;
 
 	public void setControlador(Controlador controlador) {
 
@@ -168,78 +168,74 @@ public class VistaWB extends JFrame implements Vista {
 		tabbedPane.setToolTipText("");
 
 		tabbedPane.setVisible(false);
-		
-				JPanel panel_3 = new JPanel();
-				tabbedPane.addTab("Personas", null, panel_3, null);//BUSCAR PERSONA
-				
-						JLabel lblRazonSocial = new JLabel("Nombre:");
-						
-								txtfRazonSocialBusquedaPJ = new JTextField();
-								txtfRazonSocialBusquedaPJ.setColumns(10);
-								
-										JLabel label = new JLabel("NIF/NIE:");
-										
-												NIFBusquedaPJ = new JTextField();
-												NIFBusquedaPJ.setColumns(10);
-												
-														JButton BuscarPJ = new JButton("Buscar");
-														
-																JButton btnRefreshPers = new JButton("Actualizar");
-																btnRefreshPers.setVisible(false);
-																btnRefreshPers.addActionListener(new ActionListener() {
-																	public void actionPerformed(ActionEvent arg0) {
-																		controlador.refrescar();
-																	}
-																});
-																btnRefreshPers.addMouseListener(new MouseAdapter() {
-																	@Override
-																	public void mouseClicked(MouseEvent arg0) {
 
-																	}
-																});
-														GroupLayout gl_panel_3 = new GroupLayout(panel_3);
-														gl_panel_3.setHorizontalGroup(
-															gl_panel_3.createParallelGroup(Alignment.LEADING)
-																.addGroup(gl_panel_3.createSequentialGroup()
-																	.addContainerGap()
-																	.addGroup(gl_panel_3.createParallelGroup(Alignment.LEADING)
-																		.addComponent(lblRazonSocial, GroupLayout.PREFERRED_SIZE, 79, GroupLayout.PREFERRED_SIZE)
-																		.addComponent(label, GroupLayout.PREFERRED_SIZE, 79, GroupLayout.PREFERRED_SIZE)
-																		.addComponent(txtfRazonSocialBusquedaPJ)
-																		.addComponent(NIFBusquedaPJ, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-																		.addGroup(Alignment.TRAILING, gl_panel_3.createSequentialGroup()
-																			.addComponent(btnRefreshPers)
-																			.addPreferredGap(ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-																			.addComponent(BuscarPJ, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)))
-																	.addContainerGap())
-														);
-														gl_panel_3.setVerticalGroup(
-															gl_panel_3.createParallelGroup(Alignment.LEADING)
-																.addGroup(gl_panel_3.createSequentialGroup()
-																	.addGap(7)
-																	.addComponent(lblRazonSocial, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
-																	.addGap(2)
-																	.addComponent(txtfRazonSocialBusquedaPJ, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-																	.addPreferredGap(ComponentPlacement.RELATED)
-																	.addComponent(label, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
-																	.addPreferredGap(ComponentPlacement.RELATED)
-																	.addComponent(NIFBusquedaPJ, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-																	.addPreferredGap(ComponentPlacement.UNRELATED)
-																	.addGroup(gl_panel_3.createParallelGroup(Alignment.BASELINE)
-																		.addComponent(BuscarPJ)
-																		.addComponent(btnRefreshPers))
-																	.addContainerGap(90, Short.MAX_VALUE))
-														);
-														panel_3.setLayout(gl_panel_3);
-														
-																BuscarPJ.addActionListener(new ActionListener() {
-																	public void actionPerformed(ActionEvent e) {
-																		controlador.busquedaPersonaJur();
-																	}
-																});
+		JPanel panel_3 = new JPanel();
+		tabbedPane.addTab("Personas", null, panel_3, null);// BUSCAR PERSONA
+
+		JLabel lblRazonSocial = new JLabel("Nombre:");
+
+		txtfRazonSocialBusquedaPJ = new JTextField();
+		txtfRazonSocialBusquedaPJ.setColumns(10);
+
+		JLabel label = new JLabel("NIF/NIE:");
+
+		NIFBusquedaPJ = new JTextField();
+		NIFBusquedaPJ.setColumns(10);
+
+		JButton BuscarPJ = new JButton("Buscar");
+
+		JButton btnRefreshPers = new JButton("Actualizar");
+		btnRefreshPers.setVisible(false);
+		btnRefreshPers.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controlador.refrescar();
+			}
+		});
+		btnRefreshPers.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+
+			}
+		});
+		GroupLayout gl_panel_3 = new GroupLayout(panel_3);
+		gl_panel_3.setHorizontalGroup(gl_panel_3.createParallelGroup(Alignment.LEADING).addGroup(gl_panel_3
+				.createSequentialGroup().addContainerGap()
+				.addGroup(gl_panel_3.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblRazonSocial, GroupLayout.PREFERRED_SIZE, 79, GroupLayout.PREFERRED_SIZE)
+						.addComponent(label, GroupLayout.PREFERRED_SIZE, 79, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtfRazonSocialBusquedaPJ)
+						.addComponent(NIFBusquedaPJ, GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+						.addGroup(Alignment.TRAILING,
+								gl_panel_3.createSequentialGroup().addComponent(btnRefreshPers)
+										.addPreferredGap(ComponentPlacement.RELATED, 59, Short.MAX_VALUE).addComponent(
+												BuscarPJ, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)))
+				.addContainerGap()));
+		gl_panel_3.setVerticalGroup(gl_panel_3.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_3.createSequentialGroup().addGap(7)
+						.addComponent(lblRazonSocial, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
+						.addGap(2)
+						.addComponent(txtfRazonSocialBusquedaPJ, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addComponent(label, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addComponent(NIFBusquedaPJ, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(ComponentPlacement.UNRELATED)
+						.addGroup(gl_panel_3.createParallelGroup(Alignment.BASELINE).addComponent(BuscarPJ)
+								.addComponent(btnRefreshPers))
+						.addContainerGap(90, Short.MAX_VALUE)));
+		panel_3.setLayout(gl_panel_3);
+
+		BuscarPJ.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador.busquedaPersonaJur();
+			}
+		});
 
 		JPanel panel_1 = new JPanel();
-		tabbedPane.addTab("Actividades", null, panel_1, null);//bUSCAR ACTIVIDADES
+		tabbedPane.addTab("Actividades", null, panel_1, null);// bUSCAR
+																// ACTIVIDADES
 
 		JButton btnBuscarLicencia = new JButton("Buscar");
 		btnBuscarLicencia.addMouseListener(new MouseAdapter() {
@@ -259,64 +255,58 @@ public class VistaWB extends JFrame implements Vista {
 
 		txtfActBusqueda = new JTextField();
 		txtfActBusqueda.setColumns(10);
-		
+
 		JButton btnRefreshActv = new JButton("Actualizar");
 		btnRefreshActv.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controlador.refrescar();
 			}
 		});
-		
+
 		FechaFinalActBusqueda = new JDateChooser();
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
-		gl_panel_1.setHorizontalGroup(
-			gl_panel_1.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel_1.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panel_1.createParallelGroup(Alignment.TRAILING)
-						.addGroup(gl_panel_1.createSequentialGroup()
-							.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblTipo, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtfActBusqueda, GroupLayout.PREFERRED_SIZE, 216, GroupLayout.PREFERRED_SIZE)
+		gl_panel_1
+				.setHorizontalGroup(gl_panel_1.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_panel_1.createSequentialGroup().addContainerGap().addGroup(gl_panel_1
+								.createParallelGroup(Alignment.TRAILING).addGroup(gl_panel_1
+										.createSequentialGroup().addGroup(gl_panel_1
+												.createParallelGroup(Alignment.LEADING).addComponent(lblTipo,
+														GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
+												.addComponent(txtfActBusqueda, GroupLayout.PREFERRED_SIZE, 216,
+														GroupLayout.PREFERRED_SIZE)
+												.addGroup(gl_panel_1.createSequentialGroup()
+														.addComponent(lblDesdeActBusqueda, GroupLayout.PREFERRED_SIZE,
+																103, GroupLayout.PREFERRED_SIZE)
+														.addGap(10).addComponent(lblHastaActBusqueda)))
+										.addGap(10))
 								.addGroup(gl_panel_1.createSequentialGroup()
-									.addComponent(lblDesdeActBusqueda, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
-									.addGap(10)
-									.addComponent(lblHastaActBusqueda)))
-							.addGap(10))
-						.addGroup(gl_panel_1.createSequentialGroup()
-							.addComponent(FechaFinalActBusqueda, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-							.addComponent(FechaInicialActBusqueda, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
-							.addContainerGap())
-						.addGroup(gl_panel_1.createSequentialGroup()
-							.addComponent(btnRefreshActv)
-							.addPreferredGap(ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-							.addComponent(btnBuscarLicencia)
-							.addContainerGap())))
-		);
-		gl_panel_1.setVerticalGroup(
-			gl_panel_1.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_1.createSequentialGroup()
-					.addGap(11)
-					.addComponent(lblTipo)
-					.addGap(6)
-					.addComponent(txtfActBusqueda, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(26)
-					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblDesdeActBusqueda)
-						.addComponent(lblHastaActBusqueda))
-					.addGap(11)
-					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-						.addComponent(FechaInicialActBusqueda, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(FechaFinalActBusqueda, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(30)
-					.addGroup(gl_panel_1.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnBuscarLicencia)
-						.addComponent(btnRefreshActv))
-					.addContainerGap(58, Short.MAX_VALUE))
-		);
+										.addComponent(FechaFinalActBusqueda, GroupLayout.PREFERRED_SIZE, 103,
+												GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+										.addComponent(FechaInicialActBusqueda, GroupLayout.PREFERRED_SIZE, 103,
+												GroupLayout.PREFERRED_SIZE)
+										.addContainerGap())
+								.addGroup(gl_panel_1.createSequentialGroup().addComponent(btnRefreshActv)
+										.addPreferredGap(ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+										.addComponent(btnBuscarLicencia).addContainerGap()))));
+		gl_panel_1.setVerticalGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_1.createSequentialGroup().addGap(11).addComponent(lblTipo).addGap(6)
+						.addComponent(txtfActBusqueda, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
+						.addGap(26)
+						.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING).addComponent(lblDesdeActBusqueda)
+								.addComponent(lblHastaActBusqueda))
+						.addGap(11)
+						.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+								.addComponent(FechaInicialActBusqueda, GroupLayout.PREFERRED_SIZE,
+										GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(FechaFinalActBusqueda, GroupLayout.PREFERRED_SIZE,
+										GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGap(30).addGroup(gl_panel_1.createParallelGroup(Alignment.BASELINE)
+								.addComponent(btnBuscarLicencia).addComponent(btnRefreshActv))
+						.addContainerGap(58, Short.MAX_VALUE)));
 		panel_1.setLayout(gl_panel_1);
-		
+
 		btnConfiguracion = new JButton("Configuracion");
 		btnConfiguracion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -326,47 +316,40 @@ public class VistaWB extends JFrame implements Vista {
 		btnConfiguracion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
+
 			}
 		});
 
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_contentPane.createSequentialGroup().addContainerGap().addGroup(gl_contentPane
+						.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-							.addGroup(gl_contentPane.createSequentialGroup()
-								.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 241, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(panel_4, 0, 0, Short.MAX_VALUE))
-							.addComponent(btnVisualizarLicencias, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE))
-						.addComponent(btnConfiguracion))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 665, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(22)
-							.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 628, Short.MAX_VALUE))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(panel_4, GroupLayout.PREFERRED_SIZE, 261, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_contentPane.createSequentialGroup()
-									.addGap(33)
-									.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 261, GroupLayout.PREFERRED_SIZE)))
-							.addPreferredGap(ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-							.addComponent(btnVisualizarLicencias, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
-							.addGap(271)
-							.addComponent(btnConfiguracion)))
-					.addContainerGap())
-		);
+										.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, 241,
+												GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(panel_4, 0, 0, Short.MAX_VALUE))
+								.addComponent(btnVisualizarLicencias, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE))
+						.addComponent(btnConfiguracion)).addPreferredGap(ComponentPlacement.RELATED)
+						.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 665, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap()));
+		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING).addGroup(
+				Alignment.TRAILING,
+				gl_contentPane.createSequentialGroup().addContainerGap().addGroup(gl_contentPane
+						.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createSequentialGroup().addGap(22).addComponent(panel_2,
+								GroupLayout.PREFERRED_SIZE, 628, Short.MAX_VALUE))
+						.addGroup(gl_contentPane.createSequentialGroup().addGroup(gl_contentPane
+								.createParallelGroup(Alignment.LEADING)
+								.addComponent(panel_4, GroupLayout.PREFERRED_SIZE, 261, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_contentPane.createSequentialGroup().addGap(33).addComponent(tabbedPane,
+										GroupLayout.PREFERRED_SIZE, 261, GroupLayout.PREFERRED_SIZE)))
+								.addPreferredGap(ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+								.addComponent(btnVisualizarLicencias, GroupLayout.PREFERRED_SIZE, 44,
+										GroupLayout.PREFERRED_SIZE)
+								.addGap(271).addComponent(btnConfiguracion)))
+						.addContainerGap()));
 		panel_4.setLayout(new CardLayout(0, 0));
 
 		JPanel panel_5 = new JPanel();
@@ -375,20 +358,14 @@ public class VistaWB extends JFrame implements Vista {
 		JLabel label_6 = new JLabel("");
 		label_6.setIcon(new ImageIcon(VistaWB.class.getResource("/Codigo/logo.png")));
 		GroupLayout gl_panel_5 = new GroupLayout(panel_5);
-		gl_panel_5.setHorizontalGroup(
-			gl_panel_5.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_5.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 217, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(56, Short.MAX_VALUE))
-		);
-		gl_panel_5.setVerticalGroup(
-			gl_panel_5.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel_5.createSequentialGroup()
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 292, GroupLayout.PREFERRED_SIZE)
-					.addGap(73))
-		);
+		gl_panel_5.setHorizontalGroup(gl_panel_5.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_5.createSequentialGroup().addContainerGap()
+						.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 217, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(56, Short.MAX_VALUE)));
+		gl_panel_5.setVerticalGroup(gl_panel_5.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel_5.createSequentialGroup().addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(label_6, GroupLayout.PREFERRED_SIZE, 292, GroupLayout.PREFERRED_SIZE)
+						.addGap(73)));
 		panel_5.setLayout(gl_panel_5);
 		panel_5.setVisible(true);
 
@@ -399,20 +376,15 @@ public class VistaWB extends JFrame implements Vista {
 		JPanel Contenedor = new JPanel();
 
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
-		gl_panel_2.setHorizontalGroup(
-			gl_panel_2.createParallelGroup(Alignment.LEADING)
+		gl_panel_2.setHorizontalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
 				.addComponent(lblRutaDeAcceso, GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
 				.addGroup(gl_panel_2.createSequentialGroup()
-					.addComponent(Contenedor, GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
-					.addContainerGap())
-		);
-		gl_panel_2.setVerticalGroup(
-			gl_panel_2.createParallelGroup(Alignment.LEADING)
+						.addComponent(Contenedor, GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE).addContainerGap()));
+		gl_panel_2.setVerticalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_2.createSequentialGroup()
-					.addComponent(lblRutaDeAcceso, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(Contenedor, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
+						.addComponent(lblRutaDeAcceso, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(ComponentPlacement.RELATED).addComponent(Contenedor,
+								GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 		Contenedor.setLayout(new CardLayout(0, 0));
 
 		JPanel inscActvPers = new JPanel();
@@ -425,67 +397,60 @@ public class VistaWB extends JFrame implements Vista {
 
 		JButton btnCancelarInsPers = new JButton("Cancelar");
 
-
-		
 		JPanel Interesado = new JPanel();
-		
-				JLabel lblInteresado = new JLabel("Interesado");
-				lblInteresado.setFont(new Font("Tahoma", Font.BOLD, 14));
-		
-				JLabel lblNombre_1 = new JLabel("Nombre");
-		
-				txtfInscNom = new JTextField();
-				txtfInscNom.setColumns(10);
-		
-				JLabel lblApellidos_1 = new JLabel("Apellidos");
-		
-				txtfInscApll = new JTextField();
-				txtfInscApll.setColumns(10);
-		
-				JLabel lblRazonSocial_1 = new JLabel("Razon social");
-		
-				txtfInscRaz = new JTextField();
-				txtfInscRaz.setColumns(10);
-		
-				JLabel lblCif = new JLabel("CIF");
-		
-				txtfInscCIF = new JTextField();
-				txtfInscCIF.setColumns(10);
-		
-				JLabel lblDireccion = new JLabel("Direccion");
-		
-				txtfInscDir = new JTextField();
-				txtfInscDir.setColumns(10);
-		
-				JLabel lblCodigoPostal = new JLabel("Codigo postal");
-		
-				txtfInscCP = new JTextField();
-				txtfInscCP.setColumns(10);
-		
-				JLabel lblEmailInteresado = new JLabel("Email interesado");
-		
-				txtfInscMail = new JTextField();
-				txtfInscMail.setColumns(10);
-		
-				JLabel lblFaxInteresado = new JLabel("Fax interesado");
-		
-				txtfInscFax = new JTextField();
-				txtfInscFax.setColumns(10);
-		
-				JLabel label_2 = new JLabel("Telefono movil");
-		
-				JLabel lblTelefonoFijo = new JLabel("Telefono fijo");
-		
-				txtfInscTlfMo = new JTextField();
-				txtfInscTlfMo.setColumns(10);
-		
-				txtfInscTlfFij = new JTextField();
-				txtfInscTlfFij.setColumns(10);
-		
-				JCheckBox checkRepresentante = new JCheckBox("Persona Jur\u00EDdica");
-		
+
+		JLabel lblInteresado = new JLabel("Interesado");
+		lblInteresado.setFont(new Font("Tahoma", Font.BOLD, 14));
+
+		JLabel lblNombre_1 = new JLabel("Nombre");
+
+		txtfInscNom = new JTextField();
+		txtfInscNom.setColumns(10);
+
+		JLabel lblApellidos_1 = new JLabel("Apellidos");
+
+		txtfInscApll = new JTextField();
+		txtfInscApll.setColumns(10);
+
+		JLabel lblCif = new JLabel("CIF");
+
+		txtfInscCIF = new JTextField();
+		txtfInscCIF.setColumns(10);
+
+		JLabel lblDireccion = new JLabel("Direccion");
+
+		txtfInscDir = new JTextField();
+		txtfInscDir.setColumns(10);
+
+		JLabel lblCodigoPostal = new JLabel("Codigo postal");
+
+		txtfInscCP = new JTextField();
+		txtfInscCP.setColumns(10);
+
+		JLabel lblEmailInteresado = new JLabel("Email interesado");
+
+		txtfInscMail = new JTextField();
+		txtfInscMail.setColumns(10);
+
+		JLabel lblFaxInteresado = new JLabel("Fax interesado");
+
+		txtfInscFax = new JTextField();
+		txtfInscFax.setColumns(10);
+
+		JLabel label_2 = new JLabel("Telefono movil");
+
+		JLabel lblTelefonoFijo = new JLabel("Telefono fijo");
+
+		txtfInscTlfMo = new JTextField();
+		txtfInscTlfMo.setColumns(10);
+
+		txtfInscTlfFij = new JTextField();
+		txtfInscTlfFij.setColumns(10);
+
+		checkRepresentante = new JCheckBox("Persona Jur\u00EDdica");
+
 		JLabel lblMunicipio_1 = new JLabel("Municipio");
-		
+
 		txtfInscMun = new JTextField();
 		txtfInscMun.setColumns(10);
 		GroupLayout gl_Interesado = new GroupLayout(Interesado);
@@ -539,8 +504,6 @@ public class VistaWB extends JFrame implements Vista {
 								.addComponent(lblNombre_1, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
 								.addComponent(lblApellidos_1, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
 								.addComponent(txtfInscApll, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-								.addComponent(lblRazonSocial_1, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-								.addComponent(txtfInscRaz, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
 								.addComponent(lblCif, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
 								.addComponent(txtfInscCIF, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
 								.addComponent(lblMunicipio_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -560,11 +523,7 @@ public class VistaWB extends JFrame implements Vista {
 					.addComponent(lblApellidos_1)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(txtfInscApll, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblRazonSocial_1)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(txtfInscRaz, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGap(52)
 					.addComponent(lblCif)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(txtfInscCIF, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -601,109 +560,98 @@ public class VistaWB extends JFrame implements Vista {
 					.addContainerGap(26, Short.MAX_VALUE))
 		);
 		Interesado.setLayout(gl_Interesado);
-		
+
 		if (checkRepresentante.isSelected()) {
 
 		}
 		JPanel Representante = new JPanel();
 
-		
-		
-				JLabel lblRepresentante = new JLabel("Representante");
-				lblRepresentante.setEnabled(false);
-				lblRepresentante.setFont(new Font("Tahoma", Font.BOLD, 14));
-		
-				JLabel label_10 = new JLabel("Nombre");
-				label_10.setEnabled(false);
-		
-				txtfInscRNom = new JTextField();
-				txtfInscRNom.setEnabled(false);
-				txtfInscRNom.setColumns(10);
-		
-				JLabel label_9 = new JLabel("Apellidos");
-				label_9.setEnabled(false);
-		
-				txtfInscRApll = new JTextField();
-				txtfInscRApll.setEnabled(false);
-				txtfInscRApll.setColumns(10);
-		
-				JLabel lblDocumentoDeIdentidad = new JLabel("Documento de identidad");
-				lblDocumentoDeIdentidad.setEnabled(false);
-		
-				txtfInscRDNI = new JTextField();
-				txtfInscRDNI.setEnabled(false);
-				txtfInscRDNI.setColumns(10);
-		
-				JLabel label_5 = new JLabel("Direccion");
-				label_5.setEnabled(false);
-		
-				txtfInscRMun = new JTextField();
-				txtfInscRMun.setEnabled(false);
-				txtfInscRMun.setColumns(10);
-		
-				JLabel lblMunicipio = new JLabel("Municipio");
-				lblMunicipio.setEnabled(false);
-		
-				txtfInscRDir = new JTextField();
-				txtfInscRDir.setEnabled(false);
-				txtfInscRDir.setColumns(10);
-		
-				JLabel label_4 = new JLabel("Codigo postal");
-				label_4.setEnabled(false);
-		
-				txtfInscRCP = new JTextField();
-				txtfInscRCP.setEnabled(false);
-				txtfInscRCP.setColumns(10);
-		
-				JLabel lblEmailRepresentante = new JLabel("Email representante");
-				lblEmailRepresentante.setEnabled(false);
-		
-				txtfInscRMail = new JTextField();
-				txtfInscRMail.setEnabled(false);
-				txtfInscRMail.setColumns(10);
-		
-				JLabel lblFaxRepresentante = new JLabel("Fax representante");
-				lblFaxRepresentante.setEnabled(false);
-		
-				txtfInscRFax = new JTextField();
-				txtfInscRFax.setEnabled(false);
-				txtfInscRFax.setColumns(10);
-		
-				JLabel lblTelefonoMovil = new JLabel("Telefono movil");
-				lblTelefonoMovil.setEnabled(false);
-		
-				txtfInscRTlfMo = new JTextField();
-				txtfInscRTlfMo.setEnabled(false);
-				txtfInscRTlfMo.setColumns(10);
-		
-				txtfInscRTlfFij = new JTextField();
-				txtfInscRTlfFij.setEnabled(false);
-				txtfInscRTlfFij.setColumns(10);
-		
-				JLabel label_3 = new JLabel("Telefono fijo");
-				label_3.setEnabled(false);
-		
-		JLabel lblRazonSocial_2 = new JLabel("Razon social");
-		lblRazonSocial_2.setEnabled(false);
-		
-		textField = new JTextField();
-		textField.setEnabled(false);
-		textField.setColumns(10);
+		JLabel lblRepresentante = new JLabel("Representante");
+		lblRepresentante.setEnabled(false);
+		lblRepresentante.setFont(new Font("Tahoma", Font.BOLD, 14));
+
+		JLabel label_10 = new JLabel("Nombre");
+		label_10.setEnabled(false);
+
+		txtfInscRNom = new JTextField();
+		txtfInscRNom.setEnabled(false);
+		txtfInscRNom.setColumns(10);
+
+		JLabel label_9 = new JLabel("Apellidos");
+		label_9.setEnabled(false);
+
+		txtfInscRApll = new JTextField();
+		txtfInscRApll.setEnabled(false);
+		txtfInscRApll.setColumns(10);
+
+		JLabel lblDocumentoDeIdentidad = new JLabel("Documento de identidad");
+		lblDocumentoDeIdentidad.setEnabled(false);
+
+		txtfInscRDNI = new JTextField();
+		txtfInscRDNI.setEnabled(false);
+		txtfInscRDNI.setColumns(10);
+
+		JLabel label_5 = new JLabel("Direccion");
+		label_5.setEnabled(false);
+
+		txtfInscRMun = new JTextField();
+		txtfInscRMun.setEnabled(false);
+		txtfInscRMun.setColumns(10);
+
+		JLabel lblMunicipio = new JLabel("Municipio");
+		lblMunicipio.setEnabled(false);
+
+		txtfInscRDir = new JTextField();
+		txtfInscRDir.setEnabled(false);
+		txtfInscRDir.setColumns(10);
+
+		JLabel label_4 = new JLabel("Codigo postal");
+		label_4.setEnabled(false);
+
+		txtfInscRCP = new JTextField();
+		txtfInscRCP.setEnabled(false);
+		txtfInscRCP.setColumns(10);
+
+		JLabel lblEmailRepresentante = new JLabel("Email representante");
+		lblEmailRepresentante.setEnabled(false);
+
+		txtfInscRMail = new JTextField();
+		txtfInscRMail.setEnabled(false);
+		txtfInscRMail.setColumns(10);
+
+		JLabel lblFaxRepresentante = new JLabel("Fax representante");
+		lblFaxRepresentante.setEnabled(false);
+
+		txtfInscRFax = new JTextField();
+		txtfInscRFax.setEnabled(false);
+		txtfInscRFax.setColumns(10);
+
+		JLabel lblTelefonoMovil = new JLabel("Telefono movil");
+		lblTelefonoMovil.setEnabled(false);
+
+		txtfInscRTlfMo = new JTextField();
+		txtfInscRTlfMo.setEnabled(false);
+		txtfInscRTlfMo.setColumns(10);
+
+		txtfInscRTlfFij = new JTextField();
+		txtfInscRTlfFij.setEnabled(false);
+		txtfInscRTlfFij.setColumns(10);
+
+		JLabel label_3 = new JLabel("Telefono fijo");
+		label_3.setEnabled(false);
 		GroupLayout gl_Representante = new GroupLayout(Representante);
 		gl_Representante.setHorizontalGroup(
 			gl_Representante.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_Representante.createSequentialGroup()
 					.addContainerGap(106, Short.MAX_VALUE)
 					.addGroup(gl_Representante.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_Representante.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_Representante.createParallelGroup(Alignment.TRAILING)
 							.addComponent(label_10, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
-							.addComponent(lblRazonSocial_2)
 							.addGroup(gl_Representante.createParallelGroup(Alignment.TRAILING, false)
 								.addComponent(txtfInscRApll, Alignment.LEADING)
 								.addComponent(txtfInscRNom, Alignment.LEADING)
-								.addComponent(label_9, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-								.addComponent(textField, Alignment.LEADING))
-							.addGroup(Alignment.TRAILING, gl_Representante.createSequentialGroup()
+								.addComponent(label_9, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))
+							.addGroup(gl_Representante.createSequentialGroup()
 								.addGroup(gl_Representante.createParallelGroup(Alignment.TRAILING, false)
 									.addComponent(txtfInscRTlfMo, Alignment.LEADING, 0, 0, Short.MAX_VALUE)
 									.addComponent(lblTelefonoMovil, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE))
@@ -712,23 +660,21 @@ public class VistaWB extends JFrame implements Vista {
 									.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
 									.addComponent(txtfInscRTlfFij, GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE)))
 							.addComponent(txtfInscRFax, GroupLayout.PREFERRED_SIZE, 186, GroupLayout.PREFERRED_SIZE)
-							.addGroup(gl_Representante.createSequentialGroup()
-								.addGap(2)
-								.addGroup(gl_Representante.createParallelGroup(Alignment.LEADING, false)
-									.addComponent(lblDocumentoDeIdentidad, GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-									.addComponent(label_5, GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-									.addComponent(label_4, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE)
-									.addGroup(gl_Representante.createSequentialGroup()
-										.addGap(2)
-										.addGroup(gl_Representante.createParallelGroup(Alignment.LEADING, false)
-											.addComponent(lblEmailRepresentante, GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-											.addComponent(txtfInscRMail, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
-											.addComponent(lblFaxRepresentante, GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-											.addComponent(txtfInscRCP)))
-									.addComponent(lblMunicipio, GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-									.addComponent(txtfInscRDir)
-									.addComponent(txtfInscRDNI)
-									.addComponent(txtfInscRMun))))
+							.addGroup(gl_Representante.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(lblDocumentoDeIdentidad, GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+								.addComponent(label_5, GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+								.addComponent(label_4, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_Representante.createSequentialGroup()
+									.addGap(2)
+									.addGroup(gl_Representante.createParallelGroup(Alignment.LEADING, false)
+										.addComponent(lblEmailRepresentante, GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+										.addComponent(txtfInscRMail, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+										.addComponent(lblFaxRepresentante, GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+										.addComponent(txtfInscRCP)))
+								.addComponent(lblMunicipio, GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+								.addComponent(txtfInscRDir)
+								.addComponent(txtfInscRDNI)
+								.addComponent(txtfInscRMun)))
 						.addComponent(lblRepresentante))
 					.addGap(38))
 		);
@@ -745,11 +691,7 @@ public class VistaWB extends JFrame implements Vista {
 					.addComponent(label_9)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(txtfInscRApll, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblRazonSocial_2)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGap(52)
 					.addComponent(lblDocumentoDeIdentidad)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(txtfInscRDNI, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -785,31 +727,25 @@ public class VistaWB extends JFrame implements Vista {
 		);
 		Representante.setLayout(gl_Representante);
 		GroupLayout gl_inscActvPers = new GroupLayout(inscActvPers);
-		gl_inscActvPers.setHorizontalGroup(
-			gl_inscActvPers.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_inscActvPers.createSequentialGroup()
-					.addGroup(gl_inscActvPers.createParallelGroup(Alignment.LEADING)
+		gl_inscActvPers.setHorizontalGroup(gl_inscActvPers.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_inscActvPers.createSequentialGroup().addGroup(gl_inscActvPers
+						.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_inscActvPers.createSequentialGroup()
-							.addComponent(Interesado, GroupLayout.PREFERRED_SIZE, 311, GroupLayout.PREFERRED_SIZE)
-							.addGap(63)
-							.addComponent(btnAceptarInsPers, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
-							.addGap(72)
-							.addComponent(btnCancelarInsPers, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_inscActvPers.createSequentialGroup()
-							.addGap(310)
-							.addComponent(Representante, GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE)))
-					.addGap(13))
-		);
-		gl_inscActvPers.setVerticalGroup(
-			gl_inscActvPers.createParallelGroup(Alignment.LEADING)
+								.addComponent(Interesado, GroupLayout.PREFERRED_SIZE, 311, GroupLayout.PREFERRED_SIZE)
+								.addGap(63)
+								.addComponent(btnAceptarInsPers, GroupLayout.PREFERRED_SIZE,
+										89, GroupLayout.PREFERRED_SIZE)
+								.addGap(72).addComponent(btnCancelarInsPers, GroupLayout.PREFERRED_SIZE, 89,
+										GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_inscActvPers.createSequentialGroup().addGap(310).addComponent(Representante,
+								GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE)))
+						.addGap(13)));
+		gl_inscActvPers.setVerticalGroup(gl_inscActvPers.createParallelGroup(Alignment.LEADING)
 				.addComponent(Interesado, GroupLayout.PREFERRED_SIZE, 595, GroupLayout.PREFERRED_SIZE)
-				.addGroup(gl_inscActvPers.createSequentialGroup()
-					.addGap(561)
-					.addGroup(gl_inscActvPers.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnAceptarInsPers)
-						.addComponent(btnCancelarInsPers)))
-				.addComponent(Representante, GroupLayout.PREFERRED_SIZE, 554, GroupLayout.PREFERRED_SIZE)
-		);
+				.addGroup(gl_inscActvPers.createSequentialGroup().addGap(561)
+						.addGroup(gl_inscActvPers.createParallelGroup(Alignment.BASELINE)
+								.addComponent(btnAceptarInsPers).addComponent(btnCancelarInsPers)))
+				.addComponent(Representante, GroupLayout.PREFERRED_SIZE, 554, GroupLayout.PREFERRED_SIZE));
 		inscActvPers.setLayout(gl_inscActvPers);
 		panel_2.setLayout(gl_panel_2);
 
@@ -820,16 +756,16 @@ public class VistaWB extends JFrame implements Vista {
 		ArrVistas[0] = VisualizarLicencias;
 
 		JScrollPane scrollPane_1 = new JScrollPane();
-		
-				JButton btnInscribirActividad = new JButton("Nueva licencia");
-				btnInscribirActividad.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						lblRutaDeAcceso.setText("Inscribir Actividad");
-						controlador.cambioPantalla(inscActvPers);
-						tabbedPane.setVisible(false);
-						btnRefreshPers.setVisible(false);
-					}
-				});
+
+		JButton btnInscribirActividad = new JButton("Nueva licencia");
+		btnInscribirActividad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblRutaDeAcceso.setText("Inscribir Actividad");
+				controlador.cambioPantalla(inscActvPers);
+				tabbedPane.setVisible(false);
+				btnRefreshPers.setVisible(false);
+			}
+		});
 
 		table = new JTable() {
 			private static final long serialVersionUID = 9082642090247275215L;
@@ -849,41 +785,35 @@ public class VistaWB extends JFrame implements Vista {
 				}
 			}
 		});
-	       checkRepresentante.addActionListener(new ActionListener() {
-               public void actionPerformed(ActionEvent e) {
-                      if (checkRepresentante.isSelected()) {
-                             controlador.enableComponents(Representante, true);
-                      } else {
-                             controlador.enableComponents(Representante, false);
-                      }
+		checkRepresentante.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (checkRepresentante.isSelected()) {
+					controlador.enableComponents(Representante, true);
+				} else {
+					controlador.enableComponents(Representante, false);
+				}
 
-               }
-        });
+			}
+		});
 
 		table.setRowSelectionAllowed(true);
 		table.setColumnSelectionAllowed(false);
 		scrollPane_1.setViewportView(table);
 		GroupLayout gl_VisualizarLicencias = new GroupLayout(VisualizarLicencias);
-		gl_VisualizarLicencias.setHorizontalGroup(
-			gl_VisualizarLicencias.createParallelGroup(Alignment.LEADING)
+		gl_VisualizarLicencias.setHorizontalGroup(gl_VisualizarLicencias.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_VisualizarLicencias.createSequentialGroup().addGap(21)
+						.addComponent(btnInscribirActividad, GroupLayout.PREFERRED_SIZE, 129,
+								GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(515, Short.MAX_VALUE))
+				.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE));
+		gl_VisualizarLicencias.setVerticalGroup(gl_VisualizarLicencias.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_VisualizarLicencias.createSequentialGroup()
-					.addGap(21)
-					.addComponent(btnInscribirActividad, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(515, Short.MAX_VALUE))
-				.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
-		);
-		gl_VisualizarLicencias.setVerticalGroup(
-			gl_VisualizarLicencias.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_VisualizarLicencias.createSequentialGroup()
-					.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 543, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addComponent(btnInscribirActividad))
-		);
+						.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 543, GroupLayout.PREFERRED_SIZE)
+						.addGap(18).addComponent(btnInscribirActividad)));
 		VisualizarLicencias.setLayout(gl_VisualizarLicencias);
 
 		tabbedPane.setVisible(true);
 
-		
 		JPanel inscActv = new JPanel();
 		ArrVistas[2] = inscActv;
 		Contenedor.add(inscActv, "name_29022094463246");
@@ -940,7 +870,7 @@ public class VistaWB extends JFrame implements Vista {
 		lblNewLabel_16.setBounds(334, 338, 124, 14);
 
 		JLabel lblNewLabel_17 = new JLabel("Certificado del Colegio Oficial");
-		lblNewLabel_17.setBounds(37, 489, 166, 14);
+		lblNewLabel_17.setBounds(37, 494, 166, 14);
 
 		chckFotocopiaLicenciaObra = new JCheckBox("");
 		chckFotocopiaLicenciaObra.setBounds(245, 38, 23, 23);
@@ -967,7 +897,7 @@ public class VistaWB extends JFrame implements Vista {
 		chckFotografia.setBounds(245, 321, 23, 23);
 
 		chckCertificadoColegio = new JCheckBox("");
-		chckCertificadoColegio.setBounds(245, 485, 23, 23);
+		chckCertificadoColegio.setBounds(245, 494, 23, 23);
 
 		DCFechaSolicitud = new JDateChooser();
 		DCFechaSolicitud.setBounds(473, 72, 146, 20);
@@ -1002,6 +932,8 @@ public class VistaWB extends JFrame implements Vista {
 		scrollPane.setBounds(473, 338, 146, 61);
 
 		JButton btnAceptarInsActv = new JButton("Aceptar");
+
+
 		btnAceptarInsActv.setBounds(334, 449, 90, 23);
 
 		JButton btnCancelarInsActv = new JButton("Cancelar");
@@ -1014,20 +946,20 @@ public class VistaWB extends JFrame implements Vista {
 		JLabel lblNewLabel_18 = new JLabel("Fotocopia DNI/CIF/NIE");
 		lblNewLabel_18.setBounds(37, 366, 139, 14);
 
-		chckbxEntregado = new JCheckBox("");
-		chckbxEntregado.setBounds(245, 362, 23, 23);
+		chckbxFtcDNI = new JCheckBox("");
+		chckbxFtcDNI.setBounds(245, 362, 23, 23);
 
 		JLabel lblCertificado = new JLabel("Certificado 1");
 		lblCertificado.setBounds(37, 407, 139, 14);
 
-		chckbxEntregado_1 = new JCheckBox("");
-		chckbxEntregado_1.setBounds(245, 403, 23, 23);
+		chckbxCer1 = new JCheckBox("");
+		chckbxCer1.setBounds(245, 403, 23, 23);
 
-		JLabel lblCertificado_1 = new JLabel("Certificado2");
+		JLabel lblCertificado_1 = new JLabel("Certificado 2");
 		lblCertificado_1.setBounds(37, 453, 139, 14);
 
-		chckbxEntregado_2 = new JCheckBox("");
-		chckbxEntregado_2.setBounds(245, 449, 23, 23);
+		chckbxCer2 = new JCheckBox("");
+		chckbxCer2.setBounds(245, 449, 23, 23);
 
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(313, 0, 2, 573);
@@ -1048,7 +980,7 @@ public class VistaWB extends JFrame implements Vista {
 		inscActv.add(lblNewLabel_7);
 		inscActv.add(lblNewLabel_18);
 		inscActv.add(lblCertificado);
-		inscActv.add(chckbxEntregado);
+		inscActv.add(chckbxFtcDNI);
 		inscActv.add(chckFotocopiaLicenciaObra);
 		inscActv.add(chckJustificantePago);
 		inscActv.add(chckFotocopiaEscritura);
@@ -1057,9 +989,9 @@ public class VistaWB extends JFrame implements Vista {
 		inscActv.add(chckMemoria);
 		inscActv.add(chckFotocopiaModelo36);
 		inscActv.add(chckFotografia);
-		inscActv.add(chckbxEntregado_1);
+		inscActv.add(chckbxCer1);
 		inscActv.add(lblCertificado_1);
-		inscActv.add(chckbxEntregado_2);
+		inscActv.add(chckbxCer2);
 		inscActv.add(separator_1);
 		inscActv.add(lblNewLabel_11);
 		inscActv.add(lblNewLabel_8);
@@ -1081,6 +1013,14 @@ public class VistaWB extends JFrame implements Vista {
 		inscActv.add(btnAceptarInsActv);
 		inscActv.add(scrollPane);
 		inscActv.add(cbTipoSuelo);
+		
+		JLabel lblOtrasAutorizaciones = new JLabel("Otras autorizaciones");
+		lblOtrasAutorizaciones.setBounds(37, 546, 139, 14);
+		inscActv.add(lblOtrasAutorizaciones);
+		
+		chckOtrasAut = new JCheckBox("");
+		chckOtrasAut.setBounds(245, 542, 23, 23);
+		inscActv.add(chckOtrasAut);
 		contentPane.setLayout(gl_contentPane);
 		btnVisualizarLicencias.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -1113,26 +1053,46 @@ public class VistaWB extends JFrame implements Vista {
 				btnRefreshPers.setVisible(true);
 			}
 		});
+		btnAceptarInsActv.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (checkRepresentante.isSelected()) {
+
+					int idPer = controlador.insetarPersona();
+					int idRep = controlador.insertarRepresentante();
+					int idAct = controlador.inscribirActividad();
+
+
+					controlador.inscribirTablaInterRep(idPer,idRep);
+					controlador.inscribirTablaInter(idPer, idAct);
+				} else {
+					int idPer = controlador.insetarPersona();
+					int idAct = controlador.inscribirActividad();
+					controlador.inscribirTablaInter(idPer, idAct);
+				}
+			}
+		});
+
 
 	}
 
-//	public String getFechaInicialActBusqueda() {
-//
-//
-//		int str = (Integer) FechaInicialActBusqueda.getDate().getDay();
-//		int str2 = (Integer) FechaInicialActBusqueda.getDate().getMonth()+1;
-//		int str3 = (Integer) FechaInicialActBusqueda.getDate().getYear() +1900;
-//		System.out.println(str+"-"+str2+"-"+str3);
-//		return str+"-"+str2+"-"+str3;
-//	}
+	// public String getFechaInicialActBusqueda() {
+	//
+	//
+	// int str = (Integer) FechaInicialActBusqueda.getDate().getDay();
+	// int str2 = (Integer) FechaInicialActBusqueda.getDate().getMonth()+1;
+	// int str3 = (Integer) FechaInicialActBusqueda.getDate().getYear() +1900;
+	// System.out.println(str+"-"+str2+"-"+str3);
+	// return str+"-"+str2+"-"+str3;
+	// }
+
 
 	public String getFechaFinalActBusqueda() {
 
 		int str = (Integer) FechaFinalActBusqueda.getDate().getDay();
-		int str2 = (Integer) FechaFinalActBusqueda.getDate().getMonth()+1;
-		int str3 = (Integer) FechaFinalActBusqueda.getDate().getYear() +1900; 
-		System.out.println(str+"-"+str2+"-"+str3);
-		return str+"-"+str2+"-"+str3;
+		int str2 = (Integer) FechaFinalActBusqueda.getDate().getMonth() + 1;
+		int str3 = (Integer) FechaFinalActBusqueda.getDate().getYear() + 1900;
+		System.out.println(str + "-" + str2 + "-" + str3);
+		return str + "-" + str2 + "-" + str3;
 	}
 
 	public void clear_Table() {
@@ -1164,6 +1124,240 @@ public class VistaWB extends JFrame implements Vista {
 	public void setDatosTabla() {
 		Object[][] tabla = modelo2.getTabla();
 		this.RellenarTabla(tabla);
+	}
+	
+	//PERSONA
 
+	public String getTxtfInscNom() {
+		return txtfInscNom.getText();
+	}
+
+	public String getTxtfInscApll() {
+		return txtfInscApll.getText();
+	}
+
+
+	public String getTxtfInscCIF() {
+		return txtfInscCIF.getText();
+	}
+
+	public String getTxtfInscDir() {
+		return txtfInscDir.getText();
+	}
+
+	public String getTxtfInscCP() {
+		return txtfInscCP.getText();
+	}
+
+	public String getTxtfInscTlfFij() {
+		return txtfInscTlfFij.getText();
+	}
+
+	public String getTxtfInscTlfMo() {
+		return txtfInscTlfMo.getText();
+	}
+
+	public String getTxtfInscMail() {
+		return txtfInscMail.getText();
+	}
+
+	public String getTxtfInscFax() {
+		return txtfInscFax.getText();
+	}
+
+	public String getTxtfInscMun() {
+		return txtfInscMun.getText();
+	}
+	
+	//REPRESENTANTE
+
+	public String getTxtfInscRTlfMo() {
+		return txtfInscRTlfMo.getText();
+	}
+
+	public String getTxtfInscRTlfFij() {
+		return txtfInscRTlfFij.getText();
+	}
+
+	public String getTxtfInscRCP() {
+		return txtfInscRCP.getText();
+	}
+
+	public String getTxtfInscRMun() {
+		return txtfInscRMun.getText();
+	}
+
+	public String getTxtfInscRDNI() {
+		return txtfInscRDNI.getText();
+	}
+
+	public String getTxtfInscRApll() {
+		return txtfInscRApll.getText();
+	}
+
+	public String getTxtfInscRNom() {
+		return txtfInscRNom.getText();
+	}
+
+	public String getTxtfInscRDir() {
+		return txtfInscRDir.getText();
+	}
+
+	public String getTxtfInscRMail() {
+		return txtfInscRMail.getText();
+	}
+
+	public String getTxtfInscRFax() {
+		return txtfInscRFax.getText();
+	}
+	
+	//ACTIVIDAD
+
+	public boolean getChckFotocopiaLicenciaObra() {
+		if (chckFotocopiaLicenciaObra.isSelected()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean getChckJustificantePago() {
+		if (chckJustificantePago.isSelected()) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
+	public boolean getChckFotocopiaEscritura() {
+		if (chckFotocopiaEscritura.isSelected()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean getChckFotocopiaModelo36() {
+		if (chckFotocopiaModelo36.isSelected()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean getChckPlanos() {
+		if (chckPlanos.isSelected()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean getChckCD() {
+		if (chckCD.isSelected()) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
+	public boolean getChckMemoria() {
+		if (chckMemoria.isSelected()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean getChckFotografia() {
+		if (chckFotografia.isSelected()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean getChckbxFtcDNI() {
+		if (chckbxFtcDNI.isSelected()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean getChckbxCer1() {
+		if (chckbxCer1.isSelected()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean getChckbxCer2() {
+		if (chckbxCer2.isSelected()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean getChckCertificadoColegio() {
+		if (chckCertificadoColegio.isSelected()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean getChckOtrasAut() {
+		if (chckOtrasAut.isSelected()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public String getTxtfLocal() {
+		return txtfLocal.getText();
+	}
+
+	public String getTxtfTipo() {
+		return txtfTipo.getText();
+	}
+
+	public String getTxtfCuota() {
+		return txtfCuota.getText();
+	}
+
+	public String getTxtfReferenciaCatastral() {
+		return txtfReferenciaCatastral.getText();
+	}
+
+	public String getTxtfEmplazamiento() {
+		return txtfEmplazamiento.getText();
+	}
+
+	public String getCbTipoSuelo() {
+		return cbTipoSuelo.getSelectedItem().toString();
+	}
+
+	public String getDCFechaSolicitud() {
+		int str = (Integer) FechaFinalActBusqueda.getDate().getDay();
+		int str2 = (Integer) FechaFinalActBusqueda.getDate().getMonth() + 1;
+		int str3 = (Integer) FechaFinalActBusqueda.getDate().getYear() + 1900;
+		return str + "-" + str2 + "-" + str3;
+	}
+
+	public String getDCFechaInicio() {
+		int str = (Integer) FechaFinalActBusqueda.getDate().getDay();
+		int str2 = (Integer) FechaFinalActBusqueda.getDate().getMonth() + 1;
+		int str3 = (Integer) FechaFinalActBusqueda.getDate().getYear() + 1900;
+		return str + "-" + str2 + "-" + str3;
+	}
+
+	public String getTxtDescripcion() {
+		return txtDescripcion.getText();
 	}
 }

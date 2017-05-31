@@ -20,10 +20,7 @@ public class ModeloBBDD implements Modelo {
 	public String tabla[][] = null;
 	public String tabla2[][] = null;
 
-
-
-
-	public void Conexion(String bd,String login,String pwd) {
+	public void Conexion(String bd, String login, String pwd) {
 		try {
 
 			Class.forName("com.mysql.jdbc.Driver");
@@ -207,19 +204,23 @@ public class ModeloBBDD implements Modelo {
 	public void Consulta3(String tipo, String fechaInicial, String fechaFinal) {
 		vista.clear_Table();
 		String query = "";
-		if ((tipo == null || tipo.equals("")) && !(fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy"))&& !(fechaFinal == null || fechaFinal.equals("dd-MMM-yyyy"))) {
+		if ((tipo == null || tipo.equals("")) && !(fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy"))
+				&& !(fechaFinal == null || fechaFinal.equals("dd-MMM-yyyy"))) {
 			query = "SELECT * FROM actividad join relintrep on actividad.idIntRep = relintrep.id JOIN interesado on relintrep.idInteresado = interesado.id where actividad.fechaInicio = ? AND actividad.fechaSolicitud = ?";
-		} else if ((fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy")) && !(tipo == null || tipo.equals(""))&& !(fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy"))) {
+		} else if ((fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy")) && !(tipo == null || tipo.equals(""))
+				&& !(fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy"))) {
 			query = "SELECT * FROM actividad join relintrep on actividad.idIntRep = relintrep.id JOIN interesado on relintrep.idInteresado = interesado.id where actividad.tipo = ? AND actividad.fechaSolicitud = ?";
 
-		} else if ((fechaFinal == null || fechaFinal.equals("dd-MMM-yyyy")) && !(tipo == null || tipo.equals("")) && !(fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy"))) {
+		} else if ((fechaFinal == null || fechaFinal.equals("dd-MMM-yyyy")) && !(tipo == null || tipo.equals(""))
+				&& !(fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy"))) {
 			query = "SELECT * FROM actividad join relintrep on actividad.idIntRep = relintrep.id JOIN interesado on relintrep.idInteresado = interesado.id where actividad.tipo = ? AND actividad.fechaInicio = ?";
 		} else if ((tipo == null || tipo.equals("")) && (fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy"))) {
 			query = "SELECT * FROM actividad join relintrep on actividad.idIntRep = relintrep.id JOIN interesado on relintrep.idInteresado = interesado.id where actividad.fechaSolicitud = ?";
 		} else if ((fechaFinal == null || fechaFinal.equals("dd-MMM-yyyy")) && (tipo == null || tipo.equals(""))) {
 			query = "SELECT * FROM actividad join relintrep on actividad.idIntRep = relintrep.id JOIN interesado on relintrep.idInteresado = interesado.id where actividad.fechaInicio = ?";
 
-		} else if ((fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy"))	&& (fechaFinal == null || fechaFinal.equals("dd-MMM-yyyy"))) {
+		} else if ((fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy"))
+				&& (fechaFinal == null || fechaFinal.equals("dd-MMM-yyyy"))) {
 			query = "SELECT * FROM actividad join relintrep on actividad.idIntRep = relintrep.id JOIN interesado on relintrep.idInteresado = interesado.id where actividad.tipo = ?";
 
 		} else {
@@ -231,17 +232,22 @@ public class ModeloBBDD implements Modelo {
 
 			int cont = 0;
 
-			if ((tipo == null || tipo.equals("")) && !(fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy"))&& !(fechaFinal == null || fechaFinal.equals("dd-MMM-yyyy"))) {
+			if ((tipo == null || tipo.equals("")) && !(fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy"))
+					&& !(fechaFinal == null || fechaFinal.equals("dd-MMM-yyyy"))) {
 				pstmt.setString(1, fechaInicial);
 				pstmt.setString(2, fechaFinal);
-			} else if ((fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy")) && !(tipo == null || tipo.equals(""))&& !(fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy"))) {
+			} else if ((fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy"))
+					&& !(tipo == null || tipo.equals(""))
+					&& !(fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy"))) {
 				pstmt.setString(1, tipo);
 				pstmt.setString(2, fechaFinal);
 
-			} else if ((fechaFinal == null || fechaFinal.equals("dd-MMM-yyyy")) && !(tipo == null || tipo.equals("")) && !(fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy"))) {
+			} else if ((fechaFinal == null || fechaFinal.equals("dd-MMM-yyyy")) && !(tipo == null || tipo.equals(""))
+					&& !(fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy"))) {
 				pstmt.setString(1, tipo);
 				pstmt.setString(2, fechaInicial);
-			} else if ((tipo == null || tipo.equals(""))&& (fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy"))) {
+			} else if ((tipo == null || tipo.equals(""))
+					&& (fechaInicial == null || fechaInicial.equals("dd-MMM-yyyy"))) {
 
 				pstmt.setString(1, fechaFinal);
 			} else if ((fechaFinal == null || fechaFinal.equals("dd-MMM-yyyy")) && (tipo == null || tipo.equals(""))) {
@@ -352,6 +358,60 @@ public class ModeloBBDD implements Modelo {
 	@Override
 	public void setVista(Vista vista) {
 		this.vista = (VistaWB) vista;
+	}
+
+	public int insertarPersona(String txtfInscNom, String txtfInscApll, String txtfInscCIF, String txtfInscMun,
+			String txtfInscDir, String txtfInscCP, String txtfInscMail, String txtfInscFax, String txtfInscTlfMo,
+			String txtfInscTlfFij) {
+
+		return 0;
+	}
+
+	public int insertarActividad(boolean chckFotocopiaLicenciaObra, boolean chckOtrasAut, boolean chckJustificantePago,
+			boolean chckFotocopiaEscritura, boolean chckFotocopiaModelo36, boolean chckPlanos, boolean chckCD,
+			boolean chckMemoria, boolean chckFotografia, String cbTipoSuelo, String txtfReferenciaCatastral,
+			String txtfLocal, String txtfTipo, String txtfEmplazamiento, String dcFechaInicio, String dcFechaSolicitud,
+			String txtfCuota, String txtDescripcion, boolean chckCertificadoColegio, boolean chckbxCer1,
+			boolean chckbxCer2, boolean chckbxFtcDNI) {
+
+		return 0;
+	}
+
+	public int insertarRepresentante(String txtfInscRNom, String txtfInscRApll, String txtfInscRDNI,
+			String txtfInscRMun, String txtfInscRDir, String txtfInscRCP, String txtfInscRMail, String txtfInscRFax,
+			String txtfInscRTlfMo, String txtfInscRTlfFij) {
+
+		return 0;
+	}
+
+	public void inscribirTablaInter(int idPer, int idAct) {
+
+		String query = "INSERT INTO `relactper` (`id`, `idInt`, `idAct`) VALUES (NULL, ?, ?);";
+		try {
+			PreparedStatement pstmt;
+			pstmt = conexion.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+			pstmt.setInt(1, idPer);
+			pstmt.setInt(2, idAct);
+
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+
+		}
+
+	}
+
+	public void inscribirTablaInterRep(int idPer, int idRep) {
+		String query = "INSERT INTO `relintrep` (`id`, `idInteresado`, `idRepresentante`) VALUES (NULL, ?, ?);";
+		try {
+			PreparedStatement pstmt;
+			pstmt = conexion.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+			pstmt.setInt(1, idPer);
+			pstmt.setInt(2, idPer);
+
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+
+		}
 	}
 
 }
